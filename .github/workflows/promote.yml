@@ -1,0 +1,58 @@
+name: Promote
+
+# Deliberate production promotion (and rollback): builds waffle-page/waffle at
+# the given tag/ref and publishes the bundle into docs/, which GitHub Pages
+# serves at app.waffle.page. Roll back by promoting an older tag.
+# The bundle lives in docs/ so publishing NEVER overwrites this workflow —
+# the v0.1.0 root-publish deleted the workflow with its own output.
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "waffle tag/ref to promote (e.g. v0.2.0)"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: promote
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: site
+      - uses: actions/checkout@v4
+        with:
+          repository: waffle-page/waffle
+          ref: ${{ inputs.ref }}
+          path: source
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_dir: source
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: pnpm install --frozen-lockfile
+        working-directory: source
+      - run: pnpm -C apps/web build
+        working-directory: source
+      - name: Publish bundle to docs/
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf site/docs
+          mkdir site/docs
+          cp -R source/apps/web/dist/. site/docs/
+          printf 'app.waffle.page\n' > site/docs/CNAME
+          cd site
+          git config user.name "waffle-promote"
+          git config user.email "promote@waffle"
+          git add -A
+          git commit -m "Promote waffle @ ${{ inputs.ref }}"
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
