@@ -1,0 +1,9 @@
+import{u as e}from"./src-sMU30jdm.js";import{g as t,r as n,u as r}from"./instance-DujrZZqV.js";async function i(e){let t=(await n.db.exec(e?`SELECT s.id, s.name, s.labels FROM status_set_bindings b JOIN status_sets s ON s.id = b.set_id
+         WHERE b.match_kind = 'schema_type' AND b.match_value = ? LIMIT 1`:`SELECT id, name, labels FROM status_sets WHERE id = 'do'`,e?[e]:[]))[0]??{id:`do`,name:`Tasks`,labels:`{}`};return{id:t.id,name:t.name,labels:JSON.parse(t.labels)}}async function a(e,t,a){let o=(await n.db.exec(`SELECT entity_key FROM topping_entities
+      WHERE topping_id = ? AND entity_kind = 'url'`,[e]))[0]?.entity_key??await r(t),s=await i(a),c=await n.db.exec(`SELECT slot, rating FROM interactions WHERE owner_id = 'local' AND entity_kind = 'url' AND entity_key = ? AND set_id = ?`,[o,s.id]);return{entityKey:o,set:s,slot:c[0]?.slot??null,rating:c[0]?.rating??null}}async function o(e,t,r,i){let a=new Date().toISOString();await n.db.exec(`INSERT INTO interactions (owner_id, entity_kind, entity_key, set_id, slot, rating, status_at, rated_at, updated_at)
+     VALUES ('local', 'url', ?, ?, ?, ?, ?, ?, ?)
+     ON CONFLICT(owner_id, entity_kind, entity_key, set_id)
+     DO UPDATE SET slot = excluded.slot, rating = excluded.rating,
+       status_at = CASE WHEN excluded.slot IS NOT interactions.slot THEN excluded.status_at ELSE interactions.status_at END,
+       rated_at = CASE WHEN excluded.rating IS NOT interactions.rating THEN excluded.rated_at ELSE interactions.rated_at END,
+       updated_at = excluded.updated_at`,[e,t,r,i,a,a,a])}async function s(r){return(await n.db.exec(`SELECT key, kind, value_text, value_num, value_aux FROM properties WHERE topping_id = ? ORDER BY key`,[r])).flatMap(n=>{let r=t(n.kind,n.value_text,n.value_num,n.value_aux);return r?[{key:n.key,value:e(r)}]:[]})}export{s as n,o as r,a as t};
