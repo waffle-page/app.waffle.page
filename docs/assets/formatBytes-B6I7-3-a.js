@@ -1,0 +1,1 @@
+function e(e){return!Number.isFinite(e)||e<0?`Unknown`:e<1024?`${e} B`:e<1024**2?`${(e/1024).toFixed(1)} KB`:e<1024**3?`${(e/1024**2).toFixed(1)} MB`:`${(e/1024**3).toFixed(1)} GB`}export{e as t};
