@@ -1,0 +1,1 @@
+var e=e=>e instanceof Error?e.message:String(e);export{e as t};
