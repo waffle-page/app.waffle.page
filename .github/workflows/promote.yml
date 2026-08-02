@@ -3,6 +3,8 @@ name: Promote
 # Deliberate production promotion (and rollback): builds waffle-page/waffle at
 # the given tag/ref and publishes the bundle into docs/, which GitHub Pages
 # serves at app.waffle.page. Roll back by promoting an older tag.
+# waffle is private; its checkout uses a repository-scoped read-only deploy
+# key stored as the WAFFLE_READ_DEPLOY_KEY Actions secret.
 # The bundle lives in docs/ so publishing NEVER overwrites this workflow —
 # the v0.1.0 root-publish deleted the workflow with its own output.
 
@@ -32,6 +34,8 @@ jobs:
           repository: waffle-page/waffle
           ref: ${{ inputs.ref }}
           path: source
+          ssh-key: ${{ secrets.WAFFLE_READ_DEPLOY_KEY }}
+          persist-credentials: false
       - uses: pnpm/action-setup@v4
         with:
           package_json_file: source/package.json
