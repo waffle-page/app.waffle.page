@@ -1,0 +1,1 @@
+const e=new Map;self.addEventListener(`message`,t=>{let n=t.data;if(!(typeof n!=`object`||!n)){if(n.arm!==void 0){let{id:t,delayMs:r}=n.arm;if(!Number.isSafeInteger(t)||typeof r!=`number`||r<0)return;e.set(t,setTimeout(()=>{e.delete(t),self.postMessage({fired:t})},r));return}if(typeof n.disarm==`number`){let t=e.get(n.disarm);t!==void 0&&(clearTimeout(t),e.delete(n.disarm))}}});

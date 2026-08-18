@@ -1,0 +1,1 @@
+import{t as e}from"./handleFs-DGI7WMkN.js";var t=`/vault`,n=new WeakSet,r=WeakSet.prototype.add,i=WeakSet.prototype.has,a=Reflect.apply;async function o(){let i=e(await(await navigator.storage.getDirectory()).getDirectoryHandle(`vault`,{create:!0}),t,!0);return a(r,n,[i]),i}function s(e){return a(i,n,[e])}export{o as n,s as r,t};

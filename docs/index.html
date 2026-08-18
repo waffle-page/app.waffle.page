@@ -3,18 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!--
+      Deployed defense-in-depth policy. GitHub Pages sends no headers and the
+      Cloudflare CNAME is DNS-only, so a meta CSP is the only path (docs/14).
+      Rationale per directive:
+        script-src 'wasm-unsafe-eval' — SQLite, libsodium and the ONNX/Transformers
+          runtime instantiate WebAssembly; no string eval is permitted.
+        worker-src blob: — the sqlite/semantic Workers plus ORT's threaded runtime.
+        style-src 'unsafe-inline' — the app authors inline styles and CSS vars;
+          CodeMirror and mermaid inject inline style too.
+        img-src blob: data: https: — thumbnails (object URLs), pasted images
+          (data URIs) and link-preview raster evidence.
+        media-src blob: — native preview object URLs.
+        connect-src — same-origin; the Supabase Auth/data-plane origin
+          (supabaseAccountAuth.ts); huggingface.co plus *.hf.co, the pinned
+          local-model download host (semanticModelCache.ts) — resolve/ URLs
+          302-redirect the large artifacts to us.aws.cdn.hf.co and CSP validates
+          every redirect hop, so the CDN wildcard is load-bearing; the SHA-256
+          exact-manifest check verifies bytes regardless of serving host, so
+          pinning is unaffected; and tiles.openfreemap.org, the map basemap
+          host (mapStyles.ts) MapLibre fetches style/tiles/glyphs/sprites from.
+          No other origin is reachable.
+      The Vite dev server strips this meta (waffle-dev-csp-strip) so HMR's inline
+      react-refresh scripts and dev websocket are not blocked; it ships in the
+      built index.html and is verified against `pnpm preview`.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https:; media-src 'self' blob:; font-src 'self'; connect-src 'self' https://psbkamqpslcizzriuycy.supabase.co https://huggingface.co https://*.hf.co https://tiles.openfreemap.org; object-src 'none'; base-uri 'self'"
+    />
+    <!-- Copies of DEFAULT_CUSTOM_PALETTE's light/dark seeds (src/palette.ts):
+         meta cannot read a CSS variable. Change them together. -->
     <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#17161c" media="(prefers-color-scheme: dark)" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <title>Waffle</title>
-    <script type="module" crossorigin src="/assets/index-CTwHPeXa.js"></script>
+    <script type="module" crossorigin src="/assets/index-D-icB5BI.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-QTnfLwEv.js">
     <link rel="modulepreload" crossorigin href="/assets/jsx-runtime-DRF4vMFQ.js">
-    <link rel="modulepreload" crossorigin href="/assets/src-BHZJQV51.js">
+    <link rel="modulepreload" crossorigin href="/assets/src-DxOnXMPQ.js">
     <link rel="modulepreload" crossorigin href="/assets/preload-helper-Czpn1I53.js">
-    <link rel="modulepreload" crossorigin href="/assets/settings-DbQovtRo.js">
-    <link rel="stylesheet" crossorigin href="/assets/src-K8ZqR3yc.css">
-    <link rel="stylesheet" crossorigin href="/assets/index-2EydRm7a.css">
+    <link rel="modulepreload" crossorigin href="/assets/settings-DFsuSwPf.js">
+    <link rel="stylesheet" crossorigin href="/assets/src-CoMo8ahW.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-BSFs9UeZ.css">
   </head>
   <body>
     <div id="root"></div>
