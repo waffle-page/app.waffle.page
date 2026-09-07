@@ -1,0 +1,6 @@
+import{ar as e,ir as t,or as n,rr as r}from"./src-DcBMTr-a.js";var i=`gallery`,a=/^(\s*>[ \t]?)\s*\[!([A-Za-z][\w-]*)\]([-+])?/,o=/^\s*>/;function s(e){let t=e.split(`
+`).length-1;return(e.split(`\r
+`).length-1)*2>t?`\r
+`:`
+`}function c(e){return e.endsWith(`\r`)?e.slice(0,-1):e}function l(t){let n=[],i=null,s=null,l=r(),d=!1,f=0,p=t.split(`
+`);for(let t=0;t<p.length;t+=1){let r=p[t],m=c(r),h=f,g=f+m.length;f+=r.length+1;let _=l.line(m);if(_===`marker`){d=!0;continue}if(_===`inside`)continue;let v=e(m,h);for(let e of v)n.push(e.target);if(m.trim()===``)continue;!d&&v.length===1&&u(m,v[0].source)&&(i={start:h,end:g,target:v[0].target}),d=!0;let y=a.exec(m);if(!s&&y&&y[2].toLowerCase()===`gallery`)for(s={start:h,end:g,fold:y[3]??null,quotePrefix:y[1],embedTargets:v.map(e=>e.target)};t+1<p.length;){let r=p[t+1],i=c(r);if(!o.test(i))break;t+=1;let a=f;f+=r.length+1,s.end=a+i.length;for(let t of e(i,a))n.push(t.target),s.embedTargets.push(t.target)}}return{hero:i,gallery:s,endsInUnterminatedFence:l.open,embedTargets:n}}function u(e,t){return e.trim()===t}function d(e,r,i){if(n(r))return!1;if(t(e,r)?.includes(i))return!0;let a=f(r);return!a.includes(`/`)&&a===i.split(`/`).pop()}function f(e){try{return decodeURIComponent(e)}catch{return e}}export{l as i,s as n,d as r,i as t};
