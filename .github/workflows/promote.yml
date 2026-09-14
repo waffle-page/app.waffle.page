@@ -86,14 +86,19 @@ jobs:
           # `gh api` rather than `gh release view`: the REST shape is documented
           # and stable, and `browser_download_url` is the exact string the
           # manifest publishes and the app's decoder pins to a prefix.
-          release="$(gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${REF}" 2>/dev/null || true)"
-          if [ -z "$release" ]; then
+          # `gh api` prints the 404 body ({"message":"Not Found",...}) to STDOUT
+          # and exits non-zero, so `|| true` left a non-empty $release with no
+          # `.assets` and the first promote of a tag with no release died in jq
+          # (v0.16.0, 2026-09-14). Empty the variable on failure instead, and
+          # let a release with no assets read as an empty list.
+          release="$(gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${REF}" 2>/dev/null)" || release=""
+          if [ -z "$release" ] || [ "$(printf '%s' "$release" | jq -r '.assets | type')" != "array" ]; then
             echo "::notice::No GitHub Release for ${REF}; no desktop manifest written."
             exit 0
           fi
 
           image="$(printf '%s' "$release" | jq -c \
-            '[.assets[] | select(.name | endswith("_aarch64.dmg"))][0] // empty')"
+            '[(.assets // [])[] | select(.name | endswith("_aarch64.dmg"))][0] // empty')"
           if [ -z "$image" ]; then
             echo "::notice::Release ${REF} carries no macOS image; no desktop manifest written."
             exit 0
@@ -106,7 +111,7 @@ jobs:
 
           sidecar_url="$(printf '%s' "$release" | jq -r \
             --arg want "${name}.sha256" \
-            '[.assets[] | select(.name == $want)][0].browser_download_url // empty')"
+            '[(.assets // [])[] | select(.name == $want)][0].browser_download_url // empty')"
           if [ -z "$sidecar_url" ]; then
             echo "::error::Release ${REF} attaches ${name} but no ${name}.sha256."
             echo "A digest nobody can reproduce is worse than none. Attach it with"
