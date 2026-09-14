@@ -1,0 +1,292 @@
+# Terms of Service
+
+**Status: draft pending legal review; effective on publication. Dated
+2026-09-07.**
+
+These terms describe what Waffle offers, what it does not promise, and what is
+expected of you. Like `PRIVACY.md`, every statement is derived from this
+repository and cites where it can be checked. Governing law, the provider's
+identity and its contact route were ruled on by the owner on 2026-09-07 and are
+stated below. Where a term would still normally be filled in with boilerplate —
+liability caps, arbitration, suspension grounds — this draft leaves a stated gap
+instead, because inventing one would be worse than having none. Those gaps are
+listed at the end.
+
+---
+
+## 1. Who provides Waffle
+
+Waffle is provided by **Waffle Corp**, a Delaware corporation, of 2093
+Philadelphia Pike #2073, Claymont, DE 19703, United States. It is the same
+entity named as copyright holder in `NOTICE` and `README.md` ("License &
+trademark") and rendered by the app's About surface, whose values are held
+against those files by a test (`apps/web/src/library/aboutWaffle.ts`).
+
+Waffle Corp is also the data controller for the purposes of `PRIVACY.md`.
+
+**Contact: [support@waffle.page](mailto:support@waffle.page)** — one mailbox for
+support, for anything about these terms, and for security reports. The same
+address appears in `SECURITY.md` and in Settings → About, bound by
+`aboutWaffle.test.ts` so none of the three can move alone.
+
+**Where to read these terms.** The build ships this document beside the app
+bundle as `TERMS.txt`, byte for byte as it stands in the repository; Settings →
+About links it beside the Privacy Policy, and the sign-in sheet links both
+before you type an email address.
+
+---
+
+## 2. What the service is today
+
+Waffle is a **local-first everything-library**: your notes, links and files live
+as ordinary files in an ordinary folder on your own device (ADR-004;
+`README.md`).
+
+There are several ways to run it, and they are not the same offering:
+
+- **The local app** — desktop (Tauri), mobile (Capacitor), or the web app at
+  `app.waffle.page`. This works with no account and no server. It is the whole
+  product for most purposes.
+- **An optional account** — email sign-in only. Signing in uploads nothing
+  (ADR-023).
+- **Personal Sync, shared folders, and publishing** — built to varying degrees
+  and **not activated in production**. Personal Sync's production composition is
+  owner-gated and inactive (`docs/21-sync-wire-contract.md` §7); the
+  shared-folder claim route ships inactive (`README.md`); public link publishing
+  is NO-GO pending an explicit owner decision (`README.md`).
+
+**Do not rely on any hosted capability being available.** The engineering
+contract states directly that local success "does not imply hosted deployment,
+user migration, uptime evidence or production activation" (`docs/21` §7). There
+is no uptime commitment, no service level, and no evidence base for one.
+
+Production at `app.waffle.page` is promoted deliberately by tag and rolled back
+the same way (`docs/recipes/promote-production.md`). A staging deployment also
+exists and is not intended for real use.
+
+---
+
+## 3. Your content is yours
+
+This is a structural property of the design, not a concession.
+
+- **Your library is a normal folder.** Waffle reads and writes `.md` files with
+  YAML frontmatter and ordinary files beside them; everything it writes stays
+  readable by Obsidian, Finder and `grep` (`README.md`; ADR-004).
+- **You do not need Waffle to read your own data**, and removing Waffle does not
+  remove your library.
+- **Waffle claims no ownership of, and no licence to, your content.** Nothing in
+  this repository asserts one, and no feature that would need one (publishing,
+  catalog contribution) is built or enabled.
+- **Deletes are soft.** Files move to `.trash/` inside your own vault; nothing
+  in the app hard-deletes your bytes (ADR-021).
+- **The index is disposable.** The SQLite mirror is rebuildable from your folder
+  and lives in app-local storage, never inside your vault (ADR-013, amended
+  2026-08-09).
+
+If Personal Sync or shared folders are later enabled for you, the content stays
+yours; what Waffle would hold is ciphertext, and what the provider can observe
+regardless is enumerated in `PRIVACY.md` rather than summarised.
+
+---
+
+## 4. Accounts
+
+- An account is **optional and permanently so**. First launch has no
+  registration wall; accountless use is a first-class mode, not a trial
+  (ADR-023; `docs/14-identity-sync-and-encryption.md`).
+- Sign-in is an **email magic link**. No password exists, so none is stored
+  (`docs/21` §7).
+- **Signing in is not consent to upload.** Sync, Share and Publish are separate
+  explicit actions, each with its own recorded consent (ADR-023).
+- You are responsible for the email account you sign in with, since access to it
+  is access to your Waffle account.
+- **Encryption recovery is separate from account recovery.** Regaining access to
+  your email does not by itself recover your encryption keys. If you lose every
+  authorized device *and* your recovery code, encrypted data cannot be recovered
+  — including by us (`docs/14` § "Invitations and recovery";
+  `packages/core/src/crypto/recoveryAnchor.ts`).
+
+---
+
+## 5. Fees
+
+There are none today, and no billing exists in this codebase.
+
+The design anticipates a paid managed service measured in cloud bytes, with
+local libraries never metered, but states that "exact limits are private
+commercial policy" and "exact commercial thresholds and grace periods live
+outside the public engineering repository" (`docs/14` § "Storage boundary" and
+§ "Quota and lapse behavior"). No such policy has been published, so **no
+pricing term is stated here.**
+
+**A storage ceiling already exists in the hosted schema**, so state it rather
+than describing it as hypothetical. The public defaults are **5 GB per vault**
+and **30-day retention of superseded blobs** (ADR-035 as amended 2026-08-29;
+ADR-047 D11). Retained superseded versions **count** against that 5 GB, because
+a retention window whose copies were free would stop the ceiling describing
+anything real; encrypted thumbnails do **not** count, under an internal cap,
+because they are restore accelerators and most of their stored size is our own
+padding decision (ADR-047 D11). Those figures are the whole of the published
+policy: pricing, paid tiers and grace periods are commercial policy that lives
+outside this repository and has not been set.
+
+Nothing you store is metered yet, because no object bytes move: the blob plane's
+migration, quota lanes and retention sweep are applied on the hosted database,
+while the transport that would use them is not wired (`docs/21` §8 status;
+`docs/00-state.md`). When it is, the contract already commits to the behaviour:
+local editing continues, existing cloud data stays downloadable, nothing local
+is ever deleted, and lapse or cloud-trash expiry requires advance notice and an
+export path (`docs/14`).
+
+If you configure your own AI provider key, **you pay that provider directly and
+Waffle is not party to it** (`docs/19-private-knowledge-artifacts-and-ai.md`).
+
+---
+
+## 6. Acceptable use
+
+Short, because the architecture does most of the work.
+
+- **Do not use the browser extension or the capture path for bulk crawling or
+  scraping.** The extension "must never turn ordinary Save into background
+  crawling or indiscriminate third-party republication"
+  (`docs/18-browser-capture.md`). Saving pages you are looking at is the
+  intended use; automated harvesting is not.
+- **Reading copies are private material.** A saved reading copy is a personal
+  copy of a page you deliberately shared to Waffle; it is never transmitted or
+  published, and republishing someone else's content is your responsibility, not
+  a capability Waffle grants (`docs/18`, "Privacy posture").
+- **Do not attempt to defeat the sandbox boundaries.** Connectors run in a
+  sandbox with a declared network allowlist and no library access — "data in,
+  nothing out" (ADR-008). Circumventing that, or the shared-folder access rules,
+  is out of bounds; `SECURITY.md` defines the same surfaces as in-scope for
+  vulnerability reports, which is the right way to raise a flaw you find.
+- **Do not use shared folders to distribute unlawful content.** Waffle cannot
+  see shared content — it holds ciphertext — which means moderation is not
+  possible and responsibility rests with you.
+- Respect other people's rights in what you save, share, and publish.
+
+---
+
+## 7. Software licence and marks
+
+- **All rights are reserved. No licence is granted for Waffle's own code or
+  documentation today** (`NOTICE`; `README.md`; owner ruling, 2026-09-07). Using
+  the app does not give you a licence to copy, modify or redistribute it.
+- **AGPL-3.0 is the licence INTENDED for publication, not one in force.** The
+  `LICENSE` file carries that text as a statement of intent; the repository is
+  private, so there is no Corresponding Source a recipient could obtain, and a
+  copyleft grant without it is a promise that cannot be kept. The app's About
+  surface says exactly this and links the `LICENSE.txt` that ships beside the
+  bundle so you can read the intended terms
+  (`apps/web/src/library/aboutWaffle.ts`, `RIGHTS_STATEMENT`).
+- **No offer of Corresponding Source is made, and none is owed.** An offer of
+  source runs to people who received the code under a copyleft grant; with the
+  grant withdrawn, nobody has (`aboutWaffle.ts`, `SOURCE_ROUTE`). If the source
+  is published, that constant, the rights position and this clause move together
+  in one change (`docs/22-closed-off-by-default.md`).
+- **Server-side catalog services are a separate, proprietary codebase** and are
+  not covered by that licence (ADR-019; `README.md`).
+- **The "Waffle" name and marks are not granted by the licence** (`README.md`).
+- Third-party components compiled into the built artifact are attributed in
+  `THIRD-PARTY-NOTICES.md`, and the build emits the same notices beside the
+  bundle. That obligation attaches to distributing the artifact and is live
+  today regardless of the repository's visibility
+  (`docs/22`, "What survives being closed source").
+
+---
+
+## 8. No warranty
+
+The software is provided **as is, without warranty of any kind, and without any
+implied warranty of merchantability or fitness for a particular purpose.** That
+disclaimer is stated here directly rather than borrowed: AGPL-3.0 sections 15
+and 16 say the same thing, but that licence is intent rather than a grant in
+force (§7), so it disclaims nothing on its own today.
+
+Beyond the licence, and specifically about the hosted parts: Waffle is
+pre-release. Sync is not activated, sharing ships with its claim route inactive,
+publishing does not exist, and support is one mailbox. **Keep your own
+backups.** Because your vault is an ordinary folder, ordinary backup tools work
+on it — which is the intended answer, not a workaround.
+
+**A limitation of liability has not been drafted**, and the sentence above
+disclaims warranties without capping liability. Those are different terms and
+only one of them is written. This is one of the gaps below.
+
+---
+
+## 9. Suspension and ending
+
+- **You can stop at any time.** Sign out, or simply stop using the app; your
+  library is a folder you already control.
+- **Deleting your account does not delete everything.** Rows on the
+  shared-folder plane are never deleted, and there is deliberately no cascade
+  from a provider's user record — because a handover is signed by two accounts
+  and a claim row is another person's evidence, so one party's deletion may not
+  silently erase another party's signed statement. The stated consequence is
+  that shared-line rows outlive one participant's account (`docs/21` §8.7). An
+  owner-scoped erasure ceremony is recorded as a later, separate decision and
+  does not exist today. This is a known open question, not an oversight.
+- **No suspension policy is written.** Nothing in the codebase implements
+  account suspension or termination by Waffle, and no grounds are defined.
+
+---
+
+## 10. Changes to these terms
+
+Waffle is under active development and several described capabilities are not
+yet switched on. When one is, this document and `PRIVACY.md` should change in
+the same change that switches it on.
+
+**How changes will be notified, and whether continued use constitutes
+acceptance, is not settled.** No notification mechanism exists in the product
+today.
+
+---
+
+## 11. Governing law and disputes
+
+**These terms are governed by the laws of the State of Delaware, United States,
+without regard to its conflict-of-laws rules, and the state and federal courts
+located in Delaware are the venue for any dispute.** Owner ruling, 2026-09-07.
+
+That follows the provider: Waffle Corp is a Delaware corporation (§1) and the
+infrastructure is in `us-east-1` (`PRIVACY.md`).
+
+**A choice of law does not displace rights you hold that cannot be waived.** If
+you are a consumer in a jurisdiction whose mandatory consumer-protection rules
+apply to you regardless of this clause — the EU and the United Kingdom are the
+obvious cases — those rules still apply, and this clause is read subject to
+them. How far that reaches is one of the gaps below, and no dispute-resolution
+mechanism (arbitration, class-action waiver, informal-resolution period) is
+stated here because none has been drafted.
+
+---
+
+## Open questions — for the owner and for a lawyer
+
+Five questions that stood here on 2026-09-07 are now closed and are stated in
+the terms instead: the provider's legal name and registered address (§1), the
+contact route (§1), governing law and venue (§11), whether an offer of
+Corresponding Source is owed (§7 — it is not, because no grant is in force), and
+where these terms are served (§1). The rest are the lawyer's.
+
+1. **Limitation of liability.** §8 disclaims warranties and caps nothing.
+2. **A dispute-resolution mechanism** — arbitration, class-action waiver, an
+   informal-resolution period — none of which §11 states.
+3. **Account deletion versus shared-plane retention** (§9). The same conflict
+   `PRIVACY.md` flags, seen from the contractual side.
+4. **Suspension and termination grounds** (§9). None defined.
+5. **Change-notification mechanism and whether continued use is acceptance**
+   (§10).
+6. **Consumer-law posture.** §11 reserves mandatory consumer rights in general
+   terms; which regimes actually reach a Delaware provider serving a given user,
+   and which clauses above they override, is a legal determination.
+7. **Whether separate terms are needed for the browser extension**, which is
+   distributed through Chrome, Firefox and Safari stores under their own
+   policies, and for the mobile app under Apple's and Google's.
+8. **Pricing, paid tiers and grace periods** (§5). The 5 GB ceiling and the
+   30-day retention are published defaults; everything commercial around them
+   lives outside this repository and has not been set.

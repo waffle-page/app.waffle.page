@@ -1,0 +1,454 @@
+# Privacy
+
+**Status: draft pending legal review; effective on publication. Dated
+2026-09-07.**
+
+This describes what Waffle actually does with your data today. Every statement
+below is derived from this repository and cites where it can be checked. Where
+the answer is a decision nobody has made yet, it says so instead of guessing.
+
+## Who is responsible for your data
+
+**The data controller is Waffle Corp**, a Delaware corporation, of 2093
+Philadelphia Pike #2073, Claymont, DE 19703, United States. It is also the
+copyright holder (`NOTICE`, `README.md`).
+
+**Contact: [support@waffle.page](mailto:support@waffle.page)** — for anything in
+this document, and for security reports (`SECURITY.md`;
+`apps/web/src/library/aboutWaffle.ts`, `SUPPORT_ROUTE`).
+
+**Governing law and venue: Delaware, United States** (`TERMS.md` §11).
+
+**Where to read this.** The build ships this document beside the app bundle as
+`PRIVACY.txt`, byte for byte as it stands in the repository, and Settings →
+About links it beside the Terms — the same way `LICENSE.txt` and
+`THIRD-PARTY-NOTICES.txt` already reach a reader (`apps/web/vite.config.ts`;
+`apps/web/src/library/LegalDocumentLinks.tsx`). The sign-in sheet links both
+before you type an email address, because that is the moment Waffle first asks
+for one.
+
+The controller, the contact route and the governing law are the owner's ruling
+of 2026-09-07 and are settled. What is still open is the legal review of
+everything built on them, and the questions at the end of this document that
+only a lawyer can close. This document may be read
+and relied on as a truthful description of the software while that review is
+pending; it says so in its own status line rather than waiting to be published.
+
+---
+
+## The short version
+
+Your library is a folder of ordinary files on your own device. Waffle reads and
+writes that folder. Nothing leaves your device unless you take a specific,
+separate action — and the features that would send anything anywhere are, today,
+either off by default or not switched on in production at all.
+
+There is no analytics, no telemetry, no crash reporting, no advertising, and no
+tracking of any kind in the app. That is not a promise about intent; it is a
+property of the code, and the checks are listed below.
+
+---
+
+## What is actually running today
+
+This matters more than the feature list, because Waffle has built several things
+that are not yet turned on. Describing them as live would be the wrong kind of
+inaccuracy.
+
+| Capability | State today |
+| --- | --- |
+| Local library (files on your disk) | **Live.** This is the whole product for an accountless user. |
+| Optional account (email sign-in) | **Live.** Identity only — signing in uploads nothing. |
+| Personal Sync (encrypted device-to-device) | **Built, not activated.** Production composition is owner-gated and inactive (`docs/21-sync-wire-contract.md` §7). |
+| Shared folders | **Built, claim route inactive.** The share runtime is bound only in development drills (`README.md`, Status). |
+| Public link publishing | **Not built. NO-GO** pending an explicit owner decision (`README.md`). |
+| Catalog / discovery services | **Not built in this codebase** (`CLAUDE.md`, queue item 9; ADR-019). |
+| Cloud AI models (BYOK) | **Infrastructure only.** The web app accepts no API key at all (see AI, below). |
+
+The Sync plane has never held user data: its cutover procedure asserts every
+legacy table is empty and rolls the whole transaction back otherwise
+(`docs/21` §7).
+
+When any of these is switched on, this document has to change in the same
+change that switches it on. That is the intent, and it is an owner commitment
+rather than an enforced one today — see the open questions.
+
+---
+
+## Your library lives on your device
+
+- **Files on disk are the truth.** Notes are `.md` files with YAML
+  frontmatter; everything else is an ordinary file in an ordinary folder
+  (ADR-004; `CLAUDE.md`, "Files are canonical"). You can open the folder in
+  Finder, Obsidian, or `grep` without Waffle running.
+- **The database is disposable.** Waffle keeps a SQLite index to make the
+  library fast. It is a mirror, rebuildable from the folder at any time, and it
+  lives in app-local storage — never inside your vault (ADR-013, amended
+  2026-08-09).
+- **Deleting is not destroying.** Deletes move files to `.trash/` inside your
+  own vault. Nothing in the app hard-deletes your bytes (ADR-021; `CLAUDE.md`,
+  "Deletes are soft").
+- **Your local library is not measured or metered by Waffle** (`docs/14` §
+  "Quota and lapse behavior").
+- **On the web, storage is different and weaker.** A browser vault lives in
+  OPFS: files you cannot see in Finder, cannot back up, and which the browser
+  may evict. Web Waffle is deliberately framed as trial and capture, not as a
+  home for a canonical library (owner decision 2026-08-16, `CLAUDE.md`).
+  Desktop uses a real folder.
+
+---
+
+## Everywhere the app can send a request
+
+The web app ships a Content Security Policy that enumerates every origin it is
+permitted to reach (`apps/web/index.html`). This is a hard limit enforced by the
+browser, not a description of intent. The complete list:
+
+| Destination | Why | When |
+| --- | --- | --- |
+| `app.waffle.page` (itself) | Loading the app | Every visit |
+| `psbkamqpslcizzriuycy.supabase.co` | Account sign-in, and the Sync/Share data plane | Only after you open Account, already have a session, or an email link is being handled |
+| `huggingface.co`, `*.hf.co` | Downloading local AI model weights | Only after you consent to a specific model |
+| `tiles.openfreemap.org` | Map basemap tiles | Only while a Map view is open |
+| `ipc:`, `http://ipc.localhost` | The desktop shell talking to itself | Desktop only; local |
+
+The policy's own comment states the consequence plainly: **"No other web origin
+is reachable."**
+
+Two things about that list deserve their own paragraphs.
+
+**Images are the exception, and you should know about it.** The policy allows
+images from any `https:` origin. That is needed for thumbnails and pasted
+pictures, but it has a real consequence: if a note body contains a remote
+Markdown image, opening that note makes a request to whatever host the image
+names — on every device the vault syncs to. Waffle's own capture path
+deliberately escapes remote images in saved reading copies into plain text for
+exactly this reason, and treats that escaping as a privacy control rather than
+a formatting choice (`docs/18-browser-capture.md`, "Privacy posture"). But a
+note you write, paste, or receive can still contain one.
+
+**Model downloads carry nothing of yours.** The model cache's stated invariant
+is "Public model bytes only — never vault content, prompts, credentials,
+queries or vectors", and every URL must match a pinned host, a pinned model id
+and revision, and a byte-exact SHA-256 manifest before anything becomes usable
+(`apps/web/src/platform/web/semanticModelCache.ts`).
+
+**Map tiles imply where your items are.** The app says so on the map itself:
+"Tiles load from OpenFreeMap only while this map is open; the viewed area
+implies your items' whereabouts at tile resolution."
+(`apps/web/src/library/MapCanvas.tsx`.) No API key is involved
+(`apps/web/src/library/mapStyles.ts`).
+
+---
+
+## Who hosts the app, and what they see
+
+`app.waffle.page` is served by GitHub Pages; the domain is a Cloudflare CNAME
+in DNS-only mode (`docs/recipes/promote-production.md`, steps 2 and 5). As with
+any website, GitHub receives the ordinary request data a web server receives —
+including your IP address — when you load the app. Waffle does not add
+anything to that and does not receive it.
+
+The served bundle carries no data and no secrets: local-first means the bundle
+is empty until you bring a vault (ADR-019).
+
+---
+
+## No analytics, no telemetry, no cookies
+
+Checked, not asserted:
+
+- **No analytics or telemetry dependency exists.** The full dependency lists
+  are in `package.json` and `apps/web/package.json`; no analytics, telemetry,
+  error-reporting or session-recording package appears in either.
+- **No such code exists.** A search of `apps/*/src`, `packages/*/src` and
+  `tools` for the usual vendors and for the words "telemetry" and "analytics"
+  returns only comments asserting their absence.
+- **One absence is enforced by a test.**
+  `apps/web/src/sync/inviteClaimLocation.test.ts` contains a test named
+  *"has no logger, telemetry sink, analytics or error reporter"*, guarding the
+  screen that handles invite links.
+- **Waffle sets no cookies, so there is no cookie banner to click.** No code
+  Waffle wrote writes `document.cookie`, in the app or in its own packages, and
+  no third-party analytics, advertising or tag-manager script is bundled — a
+  grep of the built `dist/` for the usual vendors returns only false positives
+  on ordinary words (`amplitude` as an SVG attribute, `onDoubleClick` as a
+  React handler). The only `document.cookie` writes anywhere in the bundle
+  belong to `@capacitor/core`'s dormant `CapacitorCookies` shim, which nothing
+  in Waffle calls. Sign-in state is kept in `localStorage` by the Supabase SDK,
+  on your own device.
+- **Fonts are bundled, not fetched.** They ship inside the app
+  (`@fontsource-variable/*`), so no font CDN sees you; the CSP's `font-src` is
+  `'self'` alone.
+
+---
+
+## Accounts
+
+An account is optional and permanently so. First launch has no registration
+wall, and signing in does not upload a byte — Sync, Share and Publish are
+separate explicit ceremonies (ADR-023; `docs/14` § "Four explicit privacy
+states").
+
+- **Sign-in is an email magic link.** No password is stored, because none is
+  ever set (`docs/21` §7 records password protection as "moot while Auth is
+  magic-link only and stores no password").
+- **What the account holds:** your email address and an account identifier
+  (`apps/web/src/platform/web/supabaseAccountAuth.ts` maps a session to exactly
+  `userId` and `email`).
+- **The account adapter can only do identity things.** No vault, filesystem,
+  SQLite, database, Storage, Sync, Share or Publish capability crosses into it,
+  and a fresh accountless launch makes no request to Supabase at all
+  (`docs/14` § "Identity-only account shell").
+- **Consent is stored state, never inferred.** Enabling Sync or Share is a
+  recorded decision kept in the durable settings store, deliberately not in the
+  rebuildable index, so that rebuilding an index cannot flip a privacy state
+  (`apps/web/src/sync/syncConsent.ts`, `shareConsent.ts`).
+
+---
+
+## Sync, if and when you turn it on
+
+Personal Sync is end-to-end encrypted: your files stay canonical on your device,
+and what moves between your devices is ciphertext (ADR-023, ADR-041/042).
+
+The honest question is not "is it encrypted" but **"what can the server see
+anyway"** — and the engineering contract already answers that in an enumerated
+list. Reproduced from `docs/21` §3, because a privacy policy that softened it
+would be a worse document than the contract it describes.
+
+**The provider sees:** account, vault, device, admission, attempt and recovery
+identifiers; the current generation number and its public key half; device
+public keys and status; enrollment routing and packed records; admission
+metadata, certificates and carrier digests; replica lineage and heads; revision
+routing, tombstone flags, **sizes and arrival timestamps**; encrypted carriers
+and payloads; usage byte counts; and the write bearer while a change is in
+flight. It also knows the private association between its authenticated user
+and your account identifier.
+
+**The provider does not receive:** your file contents, object keys, current or
+historical encryption keys, generation roots, signing private keys, or your
+recovery code.
+
+**Traffic timing, sizes and the visible routing graph remain metadata.** They
+are not encrypted away, and Waffle does not claim otherwise.
+
+**The limit of the guarantee, stated rather than implied** (`docs/21` §2.1):
+encryption protects your content from the storage provider *acting alone*. It
+does not provide freshness, completeness, or protection against a provider that
+is actively malicious — such a provider could withhold, replay, or give
+different answers to different devices. A malicious provider colluding with
+someone holding a retired key is outside the confidentiality claim entirely.
+
+**Where the data lives:** the Supabase deployment region is the United States;
+the initial project uses `us-east-1`. This is a deliberate product choice, not
+an inference from where anyone happens to sit (`docs/14`).
+
+**If you lose everything, it is gone.** A new device is approved by an existing
+device or by a user-held recovery secret. Losing every authorized device *and*
+the recovery code means the encrypted data cannot be recovered — by you or by
+us — because forging a recovery carrier requires the code
+(`docs/14` § "Invitations and recovery"; `packages/core/src/crypto/recoveryAnchor.ts`).
+
+---
+
+## Shared folders are a different storage class
+
+This is not a variation on Sync and should not be read as one.
+
+A private folder is files-on-your-disk. **A shared folder is server-homed: the
+server holds the authoritative state and your device keeps a local decrypted
+cache** (ADR-004). The contents are still encrypted — the server holds
+ciphertext, and access rules are defence in depth rather than the privacy
+boundary (ADR-023) — but the shape of what the server can observe is wider,
+and it is enumerated rather than summarised.
+
+The plane's plaintext columns are a closed, published list: **71 columns across
+10 tables**, held byte-identical between `docs/21` §8.4 and the machine register
+at `docs/contract/share-plane-column-register.json`, with a test in both
+directions. Adding one is an architectural decision on the record, not a
+migration comment.
+
+**What that makes visible** (`docs/21` §8.5):
+
+- that an invite exists, who issued it, and when it expires;
+- **who tried to claim which invite — including invites that were never
+  approved.** The contract calls this "the rejected-suitor claim graph" and
+  states that it is *not mitigable*, because being able to attribute a claim is
+  what stops invites being replayed;
+- how much invite churn a folder has;
+- which folder an encrypted object belongs to, and each folder's rotation count;
+- who holds keys for what, and when that changed;
+- when a member's keys rotate, which becomes visible across accounts;
+- **who handed which folder to whom, and when**;
+- object sizes and timing, attributable to a specific folder.
+
+**One consequence is important and deliberate** (`docs/21` §8.7): rows on the
+shared plane are never deleted, and there is **no cascade from a provider's user
+record**. A handover is signed by two accounts and a claim row is another
+person's evidence, so one participant deleting their account may not silently
+delete another participant's signed statement. The stated consequence is that
+shared-line rows outlive one participant's account. An owner-scoped erasure
+ceremony is recorded as a later, separate decision that does not exist yet.
+
+This is the single largest open question in this document. It is flagged
+below.
+
+Storage for a shared folder is charged to its owner, never duplicated against
+every collaborator (`docs/14`).
+
+---
+
+## AI features
+
+The rule is local-first, with bring-your-own-key optional and never a fallback
+the product reaches for (owner decision 2026-09-03, `docs/19` § "Text reasoning
+is local-first, BYOK optional"; ADR-044 Part G).
+
+- **Local models run on your device.** Search embeddings, image classification
+  and transcription are downloaded models that execute locally. Loading follows
+  an explicit consent step, never app startup (`docs/19`).
+- **Each model has its own consent record and its own cache**, so removing one
+  model can never touch another's bytes (`docs/19`; `semanticModelCache.ts`).
+- **Transcripts and other AI artifacts stay local.** They are written to
+  `.waffle/private/artifacts/` and are excluded from Share, Publish and
+  Catalog. Transport of these artifacts over Sync is explicitly *not settled*,
+  and today they are local-only (`CLAUDE.md`, queue item 4; ADR-045).
+- **On the web, you cannot use a cloud model at all.** The credential store's
+  web posture is "NO store at all"
+  (`packages/core/src/ai/byokCredentialStore.ts`), so there is nowhere to put a
+  key. Keys on desktop and mobile would live in the OS keychain and never in
+  vault files, SQLite, logs, the settings store, any bundle, or any Sync
+  carrier — the personal key carrier enumerates what it carries, and this store
+  is simply never in it.
+- **If you ever do enable one, the consent is per action and shows six facts
+  before a byte leaves** — provider, model, payload class, retention posture,
+  estimated time and estimated cost. An adapter that cannot state the
+  provider's retention posture must render "retention not declared by this
+  adapter" rather than a reassuring guess
+  (`packages/core/src/ai/providerContract.ts`).
+- **Only the scoped input leaves.** For a text action it is the selected text
+  and nothing else; for an image action, the source image
+  (`providerContract.ts`, where both fields are commented as "the ONLY user
+  content that leaves the device").
+- **Sensitive classes stay local by default.** Health, EHR, financial, contact
+  and credential datasource classes default to local-only processing, and a
+  connector grant never grants an AI processor access (`docs/19`).
+- **No account is needed for any of this**, and adding a provider does not
+  require one (`docs/19`; ADR-044 G4).
+
+---
+
+## Saving things from the web
+
+**The app itself does not fetch.** Saving a link writes a file; it does not go
+and look the page up. Auto-unfurling titles and favicons through a third-party
+service was rejected specifically because it would leak your save activity
+off-device, and a first-party version of the same thing was rejected as the
+same leak under our own name (`apps/web/src/library/addFlows.ts`; `CLAUDE.md`,
+preview fetch gate). Detail views never fetch at render time. If a link has no
+preview, nothing was attempted — that is the resting state, not a failure.
+
+**The browser extension asks for very little.** Its manifest requests
+`activeTab` (a temporary grant on the tab you explicitly invoke it on),
+`contextMenus`, `nativeMessaging`, `scripting` and `storage`, and its only host
+permission is `https://app.waffle.page/*`
+(`apps/extension/static/manifest.json`). It has no permission to read pages you
+have not invoked it on. For Firefox it formally declares its data collection as
+`["none"]`. The extension "must never turn ordinary Save into background
+crawling" (`docs/18`).
+
+**One request is not covered by your gesture, and it should be named.** On iOS,
+after a share is already saved, the app may fetch one preview picture the page
+itself named. It happens minutes after the share, with no user gesture in front
+of it. What it discloses was measured against a header-echo server rather than
+assumed (`docs/recipes/verify-capacitor-share-extension.md`, invariant 19): an
+IP address, a timestamp, and five headers — with `User-Agent` and
+`Accept-Language` deliberately sent empty, because leaving them at their
+defaults would ship the app identity, exact iOS build and preferred-language
+list. The session is ephemeral: no cookies sent or accepted, no `Referer`, no
+`Origin`, no credentials, no Waffle identity, no account, no vault fact. It
+happens only for a page that named a picture, only after the save succeeded,
+never on a retry, for at most two candidates through at most two redirects each
+— a ceiling of six hosts, and one in the ordinary case.
+
+**Whether that request needs its own consent surface is an open owner
+question**, recorded as such in `CLAUDE.md`'s preview fetch gate. It is listed
+below.
+
+---
+
+## Deletion
+
+- **Locally:** deletes are soft and reversible from a visible Trash; nothing
+  hard-deletes your bytes (ADR-021).
+- **Your files are yours regardless.** Because the vault is an ordinary folder,
+  deleting Waffle does not delete your library, and you do not need Waffle to
+  read it.
+- **On the shared plane:** rows are never deleted, and deleting an account does
+  not cascade (`docs/21` §8.7). See the open questions.
+- **Cloud lapse and retention:** the engineering contract requires advance
+  notice and an export path before any lapse or cloud-trash expiry, and states
+  that nothing local is ever deleted (`docs/14` § "Quota and lapse behavior").
+  The actual thresholds are commercial policy that has not been set.
+
+---
+
+## Contacting us
+
+**Write to [support@waffle.page](mailto:support@waffle.page).** You do not need
+an account, an invitation, or anything but mail. It is one mailbox for privacy
+questions, data requests and security reports alike; a dedicated address for any
+of them may be published later, and until one is defined nothing here names it.
+
+The same address appears in `SECURITY.md` and in the app's About screen, and a
+test binds all three so none can move alone
+(`apps/web/src/library/aboutWaffle.test.ts`). The rule that produced it still
+holds: never fill a route in with a plausible address to make a surface look
+finished. An address that does not receive mail is worse than a stated absence.
+
+---
+
+## Open questions — for the owner and for a lawyer
+
+None of these are answered in this repository, and none should be answered by
+guessing. They are listed here rather than papered over.
+
+Three questions that stood here on 2026-09-07 are now closed and are recorded
+above instead: the controller and governing law (§ "Who is responsible for your
+data"), the contact route (§ "Contacting us"), and where this document is served
+(§ "Who is responsible for your data", "Where to read this"). What remains is
+the lawyer's.
+
+1. **Which privacy regimes attach, and what each one then requires.** The
+   controller is a Delaware corporation and the data sits in `us-east-1`, which
+   settles who and where; it does not settle whether GDPR reaches a user in the
+   EU, whether the CCPA thresholds are met, or what transfer mechanism a
+   European user's data needs. Naming a controller was the engineering-side
+   half. This half is the lawyer's.
+2. **Erasure versus the shared plane.** `docs/21` §8.7 deliberately keeps
+   signed rows after a participant deletes their account, and explicitly does
+   not make it a foreign key. If GDPR Article 17 applies, this needs either an
+   owner-scoped erasure ceremony (already recorded as a future decision) or a
+   documented legal basis for retention. **This is the sharpest conflict
+   between the built system and a likely legal obligation.**
+3. **The rejected-suitor claim graph.** The contract states plainly that it is
+   not mitigable because attributability is the anti-replay property. Whether
+   that is defensible as a design, and how it must be disclosed, is a legal
+   question.
+4. **Does the iOS post-save hero fetch need a consent surface?** Already
+   recorded as the owner's call (`CLAUDE.md`; invariant 19).
+5. **Children's data.** No age gate, no age-related processing, and no position
+   exists anywhere in the tree. COPPA / GDPR Article 8 posture is unwritten.
+6. **Sub-processors.** Supabase, GitHub (Pages hosting), Cloudflare (DNS),
+   Hugging Face (model downloads) and OpenFreeMap (tiles) are all reachable from
+   the app. Whether they are processors, and whether a public sub-processor list
+   and DPAs are required, is unanswered.
+7. **Retention periods.** `docs/14` states thresholds are commercial policy set
+   outside this repository. None exist yet.
+8. **Data export.** `docs/14` requires an export path before lapse, but no
+   export ceremony is built, and portability rights may require one
+   independently. (Local vaults are already plain files, which answers much of
+   this for local data and none of it for shared-folder data.)
+9. **Whether this document is contractually binding, and how changes are
+   notified.** Unwritten.

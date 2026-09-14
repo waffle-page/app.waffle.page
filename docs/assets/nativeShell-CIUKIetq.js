@@ -1,0 +1,1 @@
+import{t as e}from"./dist-B2qK2w6D.js";function t(){let t=e.isNativePlatform()?e.getPlatform():null;return t===`ios`||t===`android`}function n(){return e.isNativePlatform()&&e.getPlatform()===`ios`}export{n as iosVaultShell,t as nativeVaultShell};
