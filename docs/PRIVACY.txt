@@ -63,8 +63,7 @@ These parts of the policy describe how Waffle works at launch. Until each is
 built, this is what happens instead:
 
 - Until our server update for it is live, account deletion happens at once when you confirm it, without the 7-day hold, its cancel link or its reminder email.
-- Trash does not empty itself and has no "Delete forever" yet, so Waffle never removes a deleted file from your device.
-- Storage clean-up does not run yet, and file storage is still with Supabase (its storage service, in the United States) rather than Cloudflare R2; the encrypted copy of a replaced or deleted file is not yet removed after 30 days.
+- Storage clean-up does not run yet: the encrypted copy of a replaced or deleted file is not yet removed after 30 days, and still counts towards your storage.
 - The nightly backup is not yet encrypted, and still includes sign-in sessions.
 - There are no prices and no payments yet, so Stripe, Apple and Google receive nothing from Waffle.
 
@@ -187,8 +186,16 @@ in R2's United States jurisdiction.
 **History.** Sync keeps the encrypted history of every note and file — each
 earlier version, and the record that something was deleted — for as long as
 your account exists, so that you can go back in time. One exception: the
-encrypted bytes of a replaced or deleted file version are removed from storage
-30 days after the version stops being current or leaves Trash for good.
+encrypted bytes of a file version are removed from storage 30 days after the
+version is replaced, or 30 days after the file is deleted. For a deleted file
+the 30 days start when the deletion reaches our servers, not when the file
+leaves your Trash: emptying Trash or "Delete forever" does not remove them
+sooner, and restoring a file from Trash does not depend on them, because your
+device uploads it again. Not removed this way yet: every file deleted
+together with its folder (deleting a folder is common, so this is not rare)
+keeps its encrypted bytes, and they count towards your storage, until you
+delete your account; so, more rarely, does a file deleted while another device
+was changing it.
 
 **Turning Sync off on a device** stops that device syncing. It does not delete
 what our servers hold for your account; deleting your account does.
@@ -310,7 +317,7 @@ tiles, and see only your IP address and the time, as any website would.
 | Your library on your device | Until you delete it; Trash empties itself after 30 days |
 | Your account and its sign-in records | Until you delete your account |
 | The encrypted history of your notes and files | As long as your account exists |
-| Encrypted bytes of a replaced or deleted file version | 30 days after it stops being current or leaves Trash for good |
+| Encrypted bytes of a replaced or deleted file version | 30 days after it is replaced or deleted (a file deleted with its whole folder: until you delete your account, for now) |
 | Our nightly backup of the database | 30 days |
 | A deletion request made on the website | It stops working after 60 minutes, and is removed when the next request is handled |
 | The record that limits how often deletion email can be sent to an address | A scrambled fingerprint of the address, not the address itself: at least 24 hours, and until a later request clears it |

@@ -90,9 +90,13 @@ web and in the Mac app, and by Apple in the iPhone and iPad app; a purchase
 through Apple or Google is also governed by their terms.
 
 **Storage.** Each library can store up to **5 GB** with Sync. The encrypted
-bytes of a replaced or deleted file version are kept **30 days** after it stops
-being current or leaves Trash for good, then removed, and count towards the
-5 GB until then. Small preview images do not count.
+bytes of a replaced or deleted file version are kept **30 days** after it is
+replaced or deleted, then removed, and count towards the 5 GB until then; for a
+deleted file the 30 days start when the deletion reaches our servers, not when
+it leaves your Trash. Files deleted together with their folder are not
+removed this way yet: their bytes stay, and count, until you delete your
+account.
+Small preview images do not count.
 
 **When you reach the limit**, editing on your devices continues, new uploads
 pause, everything already stored stays downloadable, and nothing on your
