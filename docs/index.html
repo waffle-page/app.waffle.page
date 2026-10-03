@@ -20,7 +20,9 @@
           Tauri's response-header policy intersect, and its raw-byte VaultFs IPC
           cannot use the JSON postMessage fallback; same-origin; the Supabase
           Auth/data-plane origin
-          (supabaseAccountAuth.ts); huggingface.co plus *.hf.co, the pinned
+          (supabaseAccountAuth.ts); the blob store, Cloudflare R2's US-jurisdiction
+          host (blobStoreOrigin.ts), which every presigned PUT/GET the signer mints
+          names; huggingface.co plus *.hf.co, the pinned
           local-model download host (semanticModelCache.ts) — resolve/ URLs
           302-redirect the large artifacts to us.aws.cdn.hf.co and CSP validates
           every redirect hop, so the CDN wildcard is load-bearing; the SHA-256
@@ -40,7 +42,7 @@
     -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https:; media-src 'self' blob:; font-src 'self'; connect-src 'self' ipc: http://ipc.localhost https://psbkamqpslcizzriuycy.supabase.co https://huggingface.co https://*.hf.co https://tiles.openfreemap.org https://app.waffle.page; object-src 'none'; base-uri 'self'"
+      content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https:; media-src 'self' blob:; font-src 'self'; connect-src 'self' ipc: http://ipc.localhost https://psbkamqpslcizzriuycy.supabase.co https://e9c987cf555d0b613cef09e8cd7b3f47.us.r2.cloudflarestorage.com https://huggingface.co https://*.hf.co https://tiles.openfreemap.org https://app.waffle.page; object-src 'none'; base-uri 'self'"
     />
     <!-- Copies of DEFAULT_CUSTOM_PALETTE's light/dark seeds (src/palette.ts):
          meta cannot read a CSS variable. Change them together. -->
@@ -48,14 +50,14 @@
     <meta name="theme-color" content="#17161c" media="(prefers-color-scheme: dark)" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <title>Waffle</title>
-    <script type="module" crossorigin src="/assets/index-BGH93_UG.js"></script>
+    <script type="module" crossorigin src="/assets/index-BhCa8bOX.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-QTnfLwEv.js">
     <link rel="modulepreload" crossorigin href="/assets/jsx-runtime-zmhwKJFE.js">
-    <link rel="modulepreload" crossorigin href="/assets/src-BhgN8yup.js">
+    <link rel="modulepreload" crossorigin href="/assets/src-ueagZCPW.js">
     <link rel="modulepreload" crossorigin href="/assets/preload-helper-Czpn1I53.js">
-    <link rel="modulepreload" crossorigin href="/assets/settings-CxGZ_3tC.js">
+    <link rel="modulepreload" crossorigin href="/assets/settings-Bdf6Spjd.js">
     <link rel="stylesheet" crossorigin href="/assets/src-CoMo8ahW.css">
-    <link rel="stylesheet" crossorigin href="/assets/index-BSFs9UeZ.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-DG3ecjCh.css">
   </head>
   <body>
     <div id="root"></div>
