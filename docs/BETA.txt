@@ -1,0 +1,37 @@
+# Beta Participation Terms
+
+**Version 2026-10-13.** An addendum to the [Terms of Service](https://waffle.page/terms/) for invite-only and pre-release builds of Waffle (TestFlight, Google Play testing tracks, pre-release desktop builds and the invite-only web beta). These terms apply while you use a beta build and win over the Terms of Service where they differ. Everything else — above all the Privacy Policy — applies unchanged.
+
+## What a beta is
+
+- **It is unfinished.** Features may be incomplete, change or disappear between builds. Things will break.
+- **It is free.** During the beta nothing can be bought, and no payment is taken from anyone. Every beta account has the Free plan (Sync with 1 GB, once Sync is switched on). Personal Sync is not switched on yet. Shared folders are not offered at launch. Until each is switched on, nothing of yours reaches our servers through it. When paid plans launch, you choose whether to buy one; nothing converts by itself.
+- **It is invitation-only.** Your invitation is for you. Do not share invitation links or beta builds with anyone we did not invite.
+- **It may end at any time**, for everyone or for you, with or without notice. When it ends, you can keep using the released app with the same account, or delete your account.
+
+## Your data during the beta
+
+- **Your library is still yours and still on your device.** Beta or not, Waffle is local-first. Keep your own backups; a beta build can corrupt its index or, more rarely, a file, and we may not be able to help.
+- **What our servers hold may be reset.** Until the first public release, we may wipe the servers' records of beta accounts — encrypted Sync data, shared folders, sign-in records — to fix a problem or change the design. We give at least 7 days' notice by email before a planned wipe, and none for an emergency. A wipe deletes nothing on your devices, but a file you had removed with "Free up space" and not downloaded again is lost with the server copy.
+- **The Privacy Policy is exactly as true in the beta.** No analytics or telemetry is added for the beta. The Privacy Policy's section "Not running yet" tells you which launch protections are not yet built (for example, backups not yet encrypted).
+- **Encryption is real in the beta.** If you lose every device and your recovery code, your synced data is gone; we cannot recover it, in beta or after.
+
+## Feedback
+
+Feedback is why there is a beta. Anything you tell us about Waffle — bugs, ideas, screenshots of the app — we may use freely to improve it, without owing you anything and without naming you. Please do not send us the contents of your notes or files; a description is enough, and we cannot read them otherwise.
+
+## Confidentiality: none required
+
+You may talk and write about the beta publicly. We ask only that you say it is a beta.
+
+## No support promise, no warranty, no liability beyond the Terms
+
+Support is one mailbox, contact@waffle.page, answered as time allows. The beta is provided as is, and the Terms of Service' disclaimer and limitation of liability apply. Since the beta is free, the liability cap in those terms is US $100, except where the law does not allow it to be limited.
+
+## Store beta programs
+
+A build you get through TestFlight or a Google Play testing track is also subject to Apple's or Google's beta program terms, which you accepted when you joined.
+
+## Ending your participation
+
+Leave at any time: delete the beta build, or delete your account in the app or at waffle.page/delete-account. The Privacy Policy's deletion section applies.

@@ -1,99 +1,67 @@
-# Privacy
+# Waffle Privacy Policy
 
-**Status: draft pending legal review; effective on publication. Dated
-2026-10-02.**
-
-This explains what Waffle does with your data. It describes Waffle as it works
-at launch. A few launch features are decided and not built yet; the section
-"What is switched on today" names each one and says what happens until it is
-built, so nothing here reads as running when it is not.
-
-## Who is responsible for your data
-
-**The data controller is Waffle Corp**, a Delaware corporation, of 2093
-Philadelphia Pike #2073, Claymont, DE 19703, United States.
-
-**Contact: [support@waffle.page](mailto:support@waffle.page)** — for anything in
-this policy, for requests about your data, and for security reports.
-
-**Governing law and venue: Delaware, United States** (see the Terms of
-Service, section 11).
-
-**Where to read this.** The same text ships with the app as PRIVACY.txt and is
-linked from Settings → About, from the sign-in screen before you type an email
-address, and from the website at waffle.page/privacy.
+**Version 2026-10-13. Effective on publication.** The same text ships with the app as PRIVACY.txt (Settings → About), is linked from the sign-in screen beside the email field, and is published at waffle.page/privacy.
 
 ---
 
 ## The short version
 
-Your library is a folder of ordinary files on your own device. Waffle reads and
-writes that folder, and works fully without an account.
-
-If you choose to, you can sign in and turn on **Personal Sync** (your library on
-all your devices) and **shared folders** (a folder you share with people you
-invite). Both are end-to-end encrypted: the contents of your notes and files,
-and their names, are encrypted on your device with keys only your devices hold.
-Some information is not encrypted — your email address, when you signed in,
-sizes and times, and for shared folders who shares with whom. It is all listed
-below, because "encrypted" does not mean "invisible".
-
-There is no analytics, no telemetry, no crash reporting, no advertising and no
-tracking of any kind in the app.
+- Your library is a folder of ordinary files on your own device. Waffle works fully without an account, and in that mode nothing about you reaches us.
+- If you sign in and turn on **Personal Sync**, the contents and names of your notes and files are encrypted on your device with keys only your devices hold. Our servers and providers cannot read them. What is *not* encrypted — your email address, when you signed in, sizes and times — is listed here, because "encrypted" does not mean "invisible". **Shared folders** are not offered at launch; section 10 describes how they will work.
+- There is no analytics, no telemetry, no crash reporting, no advertising and no tracking in the app or on the website. We set no cookies.
+- We never sell or share your personal data for advertising, and we never use your content to train AI.
+- Our servers are in the United States. We tell you exactly which companies process data for us and why.
+- You can delete your account yourself, in the app or on the website. This policy says what is kept afterwards and for how long.
+- Wherever you live, you can ask us what we hold about you, have it corrected or deleted, and complain to a regulator.
 
 ---
 
-## What is switched on today
+## 1. Who is responsible
+
+**The data controller is Waffle Corp.**, a Delaware corporation, 2093 Philadelphia Pike #2073, Claymont, DE 19703, United States.
+
+**Contact:** contact@waffle.page — for anything in this policy, for requests about your data, and for security reports. You do not need an account to write to us.
+
+Waffle has no data protection officer; the law does not require one for processing of this size and kind. Privacy questions go to the mailbox above.
+
+## 2. What this policy covers
+
+This policy covers the Waffle app (Mac, iPhone, iPad, Android), the browser extension, the web app at app.waffle.page, and the website waffle.page. It describes Waffle as it works at launch. A few launch features are decided and not built yet; section 3 names each one and says what happens until it is built, so nothing here reads as running when it is not.
+
+## 3. What is switched on today
 
 | Feature | At launch | Today |
 | --- | --- | --- |
 | Your library on your device | The whole product if you have no account | Live |
 | An optional account (sign-in by email) | Signing in uploads nothing | Live |
-| Personal Sync | A paid add-on | Built, switched off |
-| Shared folders | Included | Built, switched off |
-| Deleting your account, in the app or at waffle.page/delete-account | Live, with a 7-day hold | Live, without the hold |
+| Personal Sync | Included with every account: Free 1 GB; Plus and Pro add storage | Built, switched off |
+| Shared folders | Decided for after launch | Built, switched off |
+| Deleting your account, in the app or at waffle.page/delete-account | Live, with a 7-day hold | Live, with the hold |
 
-Personal Sync is not switched on yet. Shared folders are not switched on yet.
-Until each is, none of your content reaches our servers through it, and this
-policy changes in the same release that switches it on.
+Personal Sync is not switched on yet. Shared folders are not offered at launch. Until each is switched on, none of your content reaches our servers through it, and this policy changes in the same release that switches it on.
 
 ### Not running yet
 
-These parts of the policy describe how Waffle works at launch. Until each is
-built, this is what happens instead:
+These parts of the policy describe how Waffle works at launch. Until each is built, this is what happens instead:
 
-- Until our server update for it is live, account deletion happens at once when you confirm it, without the 7-day hold, its cancel link or its reminder email.
-- Storage clean-up does not run yet: the encrypted copy of a replaced or deleted file is not yet removed after 30 days, and still counts towards your storage.
+- Storage clean-up does not run yet: the encrypted copy of a replaced or deleted file is not yet removed after 30 days, and counts towards your storage only where such kept copies come to more than your plan's storage.
 - The nightly backup is not yet encrypted, and still includes sign-in sessions.
+- The second copy of stored files and the deleted-account record are not running yet: no backup storage provider receives anything from Waffle.
 - There are no prices and no payments yet, so Stripe, Apple and Google receive nothing from Waffle.
+- The emails about a plan that ended (section 11) are not sent yet, and no online copy is removed on that basis.
+- The emails about an account that has gone unused (section 11) are not sent yet, and no unused account is deleted on that basis.
 
----
+## 4. Your library lives on your device
 
-## Your library lives on your device
-
-- **Your files are the real thing.** Notes are Markdown files; everything else
-  is an ordinary file in an ordinary folder. You can open the folder with any
-  other program without Waffle running.
-- **Waffle's index is disposable.** To be fast, Waffle keeps an index of your
-  library in the app's own storage, never inside your library. It can be
-  rebuilt from your files at any time.
-- **Deleting goes to Trash first.** Deleting moves a file to a Trash folder
-  inside your library, where you can restore it. Trash empties itself after 30
-  days, and "Delete forever" removes something sooner. Those are the only ways
-  Waffle deletes a file for good. "Free up space" removes only this device's
-  downloaded copy of a file Sync can give back.
+- **Your files are the real thing.** Notes are Markdown files; everything else is an ordinary file in an ordinary folder. You can open the folder with any other program without Waffle running.
+- **Waffle's index is disposable.** To be fast, Waffle keeps an index of your library in the app's own storage, never inside your library. It can be rebuilt from your files at any time.
+- **Deleting goes to Trash first.** Deleting moves a file to a Trash folder inside your library, where you can restore it. Trash empties itself after 30 days, and "Delete forever" removes something sooner. Those are the only ways Waffle deletes a file for good. "Free up space" removes only this device's downloaded copy of a file Sync can give back.
 - **Waffle does not measure or meter your local library.**
-- **In a web browser, storage is weaker.** The web app keeps your library inside
-  the browser, where you cannot see it as files, cannot back it up, and the
-  browser may clear it. The web app is meant for trying Waffle and saving
-  things quickly; the Mac app keeps your library in a real folder.
+- **In a web browser, storage is weaker.** The web app keeps your library inside the browser, where you cannot see it as files, cannot back it up, and the browser may clear it. The web app is meant for trying Waffle and saving things quickly; the Mac app keeps your library in a real folder.
 
----
+## 5. Everywhere the app connects to
 
-## Everywhere the app connects to
-
-The web app tells your browser the complete list of places it may connect to,
-and the browser refuses everything else:
+The web app tells your browser the complete list of places it may connect to, and the browser refuses everything else:
 
 | Destination | Why | When |
 | --- | --- | --- |
@@ -102,51 +70,31 @@ and the browser refuses everything else:
 | Cloudflare R2, where the encrypted bytes of your files are stored | Uploading and downloading your files, encrypted | Only with Sync or a shared folder on |
 | Hugging Face | Downloading the AI models that run on your device | Only after you agree to a specific model |
 | OpenFreeMap | Map tiles | Only while a map is open |
+| Stripe (on the web and from the Mac app) | Buying or managing a paid plan | Only when you open the checkout or the subscription page |
 
-**Pictures are the exception.** The app may show pictures from any web
-address. If a note contains a picture hosted elsewhere, opening the note asks
-that host for it — on every device the note syncs to. Pages Waffle saves for
-you have such pictures turned into plain text for this reason, but a note you
-write or paste can still contain one.
+**Pictures are the exception.** The app may show pictures from any web address. If a note contains a picture hosted elsewhere, opening the note asks that host for it — on every device the note syncs to. Pages Waffle saves for you have such pictures turned into plain text for this reason, but a note you write or paste can still contain one.
 
-**Model downloads carry nothing of yours** — only the public model files, each
-checked against a fixed fingerprint before use.
+**Model downloads carry nothing of yours** — only the public model files, each checked against a fixed fingerprint before use.
 
-**Map tiles reveal roughly where your items are.** The map says so: tiles load
-only while it is open, and the area you view hints at your items' locations.
+**Map tiles reveal roughly where your items are.** The map says so: tiles load only while it is open, and the area you view hints at your items' locations.
 
----
+## 6. No analytics, no telemetry, no cookies
 
-## No analytics, no telemetry, no cookies
-
-- The app contains no analytics, telemetry, error-reporting or
-  session-recording software, and no advertising or tag-manager script.
-- Waffle sets no cookies, so there is no cookie banner. Your sign-in is kept on
-  your own device.
+- The app contains no analytics, telemetry, error-reporting or session-recording software, and no advertising or tag-manager script.
+- Waffle sets no cookies, so there is no cookie banner. Your sign-in is kept on your own device, in the browser's or app's own storage. The short [Cookie and Storage Notice](https://waffle.page/cookies/) lists what that storage holds.
 - Fonts are part of the app, so no font service sees you.
-- The website waffle.page makes no request to anyone else and sets no cookies;
-  only its account-deletion pages contact Waffle's own servers.
+- The website waffle.page makes no request to anyone else and sets no cookies; only its account-deletion pages contact Waffle's own servers.
+- Stripe's checkout and subscription pages are Stripe's own pages and use Stripe's cookies under Stripe's privacy policy.
 
----
+## 7. Accounts
 
-## Accounts
+An account is optional and always will be. Signing in uploads nothing; Sync and shared folders are separate steps you take on purpose.
 
-An account is optional and always will be. Signing in uploads nothing; Sync and
-shared folders are separate steps you take on purpose.
+- **You sign in with a link we email you.** There is no password, so none is stored. The email is sent through Postmark (until our switch-over to Postmark is complete for sign-in emails, they come from our database provider, Supabase).
+- **What we keep about your account:** your email address and an account number; for each sign-in, when it started and was last renewed, and the device's browser description and IP address; and when your email address last changed (the time only, not the old address), because a deletion request from the website is refused for 7 days after a change.
+- **Your choices are recorded, never guessed.** Turning Sync or sharing on is saved on your device as a decision, so nothing can switch it on by itself.
 
-- **You sign in with a link we email you.** There is no password, so none is
-  stored. The email is sent through Postmark.
-- **What we keep about your account:** your email address and an account
-  number; for each sign-in, when it started and was last renewed, and the
-  device's browser description and IP address; and when your email address
-  last changed (the time only, not the old address), because a deletion
-  request from the website is refused for 7 days after a change.
-- **Your choices are recorded, never guessed.** Turning Sync or sharing on is
-  saved on your device as a decision, so nothing can switch it on by itself.
-
----
-
-## What is encrypted, and what is not
+## 8. What is encrypted, and what is not
 
 | Encrypted on your device, with keys only your devices hold | Not encrypted: our servers and providers can read it |
 | --- | --- |
@@ -157,168 +105,139 @@ shared folders are separate steps you take on purpose.
 | Your encryption keys, whenever our servers carry them for you | Who shares which folder with whom, and when |
 | | Billing records, when you pay |
 
----
+## 9. Personal Sync
 
-## Personal Sync
+Personal Sync keeps your library on all your devices. Your files stay on your devices; what travels between them, through our servers, is encrypted first.
 
-Personal Sync keeps your library on all your devices. Your files stay on your
-devices; what travels between them, through our servers, is encrypted first.
+**What our servers can see:** your account and the numbers that identify your libraries, devices and their approvals; your devices' public keys (the halves meant to be shared); the size of each change and when it arrived; which item each change belongs to, and whether it was a deletion; how much storage you use; and the encrypted changes themselves.
 
-**What our servers can see:** your account and the numbers that identify your
-libraries, devices and their approvals; your devices' public keys (the halves
-meant to be shared); the size of each change and when it arrived; which item
-each change belongs to, and whether it was a deletion; how much storage you use;
-and the encrypted changes themselves.
+**What our servers never receive:** the contents or names of your notes and files, your encryption keys, or your recovery code.
 
-**What our servers never receive:** the contents or names of your notes and
-files, your encryption keys, or your recovery code.
+**The limits of encryption.** Encryption keeps your content unreadable to our storage providers acting alone. It cannot guarantee that a server always shows your devices every latest change: a misbehaving server could hold back or repeat changes, though it still could not read them. And the pattern of when, and how much, you sync is visible.
 
-**The limits of encryption.** Encryption keeps your content unreadable to our
-storage providers acting alone. It cannot guarantee that a server always shows
-your devices every latest change: a misbehaving server could hold back or
-repeat changes, though it still could not read them. And the pattern of when,
-and how much, you sync is visible.
+**Where it is stored.** The database and sign-in are run by Supabase in the United States. The encrypted bytes of your files are stored in Cloudflare R2, in R2's United States jurisdiction.
 
-**Where it is stored.** The database and sign-in are run by Supabase in the
-United States. The encrypted bytes of your files are stored in Cloudflare R2,
-in R2's United States jurisdiction.
+**History.** Sync keeps the encrypted history of every note and file — each earlier version, and the record that something was deleted — for as long as your account exists, so that you can go back in time. One exception: the encrypted bytes of a file version are removed from storage 30 days after the version is replaced, or 30 days after the file is deleted. For a deleted file the 30 days start when the deletion reaches our servers, not when the file leaves your Trash: emptying Trash or "Delete forever" does not remove them sooner, and restoring a file from Trash does not depend on them, because your device uploads it again. When two devices change the same file at the same time, the 30 days for the version that loses start when one of your devices next syncs. A replaced or deleted version is removed only once every device on your account has synced since it was replaced or deleted (a device whose storage is full still counts as syncing; a device holding changes from your other devices that it has not applied yet does not, and says so in its Activity), so a device that has stopped syncing keeps them stored, and counting towards your storage, until it syncs again or you remove it from your account. A file deleted together with its folder is deleted for good 30 days after the folder, by the device that deleted the folder, the next time that device syncs. Those 30 days are counted by that device's clock, from when it deleted the folder or first saw that it had, whichever is later, so they are 30 real days on a correct clock. The bytes' own 30 days start then, so they go about 60 days after the folder. If that device never syncs again (it is lost or wiped, or Sync is turned off on it), they stay, and count towards your storage, until you delete your account; so, more rarely, does a file deleted while another device was changing it. While a replaced or deleted version is kept, its bytes count towards your storage only where kept versions come to more than your plan's storage, so deleting a file frees its space at once.
 
-**History.** Sync keeps the encrypted history of every note and file — each
-earlier version, and the record that something was deleted — for as long as
-your account exists, so that you can go back in time. One exception: the
-encrypted bytes of a file version are removed from storage 30 days after the
-version is replaced, or 30 days after the file is deleted. For a deleted file
-the 30 days start when the deletion reaches our servers, not when the file
-leaves your Trash: emptying Trash or "Delete forever" does not remove them
-sooner, and restoring a file from Trash does not depend on them, because your
-device uploads it again. Not removed this way yet: every file deleted
-together with its folder (deleting a folder is common, so this is not rare)
-keeps its encrypted bytes, and they count towards your storage, until you
-delete your account; so, more rarely, does a file deleted while another device
-was changing it.
+**Turning Sync off on a device** stops that device syncing. It does not delete what our servers hold for your account; deleting your account does.
 
-**Turning Sync off on a device** stops that device syncing. It does not delete
-what our servers hold for your account; deleting your account does.
+**If you lose everything, it is gone.** A new device is approved by one of your devices or by your recovery code. If you lose every device and the recovery code, your encrypted data cannot be recovered — by you or by us.
 
-**If you lose everything, it is gone.** A new device is approved by one of your
-devices or by your recovery code. If you lose every device and the recovery
-code, your encrypted data cannot be recovered — by you or by us.
+## 10. Shared folders
 
----
-
-## Shared folders
-
-A shared folder works differently from your own library: our servers hold the
-folder, encrypted for its members, and each member's devices keep their own
-copy.
+A shared folder works differently from your own library: our servers hold the folder, encrypted for its members, and each member's devices keep their own copy.
 
 **Shared folders reveal more than Sync does.** Our servers can see:
 
 - that an invitation exists, who sent it, and when it expires;
-- who tried to accept which invitation — including invitations that were never
-  approved. This cannot be hidden, because recording who accepted is what stops
-  an invitation being reused;
-- which folder each encrypted item belongs to, who added it and when, and its
-  size;
-- who is a member of which folder, with what role, since when, and when that
-  ended;
+- who tried to accept which invitation — including invitations that were never approved. This cannot be hidden, because recording who accepted is what stops an invitation being reused;
+- which folder each encrypted item belongs to, who added it and when, and its size;
+- who is a member of which folder, with what role, since when, and when that ended;
 - when members' keys change;
 - who handed a folder over to whom, and when.
 
-**Other members are other people.** What you add to a shared folder is readable
-on every member's devices. Removing someone stops them seeing new changes; it
-cannot take back what their devices already hold.
+**Other members are other people.** What you add to a shared folder is readable on every member's devices. Removing someone stops them seeing new changes; it cannot take back what their devices already hold.
 
-**Storage for a shared folder counts against its owner**, not against every
-member.
+**Storage for a shared folder counts against its owner**, not against every member.
 
----
+## 11. Payments and plans
 
-## AI features
+Personal Sync comes with every account: Free includes 1 GB; Plus ($4.99 a month or $39.99 a year, 10 GB) and Pro ($9.99 a month or $95.99 a year, 100 GB) add storage. Nothing can be bought yet.
 
-AI in Waffle runs on your device. Using your own key with an outside AI service
-is optional and never happens by itself.
+When you pay, the payment is handled by whoever you pay through: **Stripe** on the web and from the Mac app, **Apple** in the iPhone and iPad app, and **Google** in the Android app. Your card or account details go to them, never to Waffle.
 
-- **Search, image recognition and transcription run on your device**, using
-  models downloaded only after you agree.
-- **Transcripts and other AI results stay on your device.** They are not
-  shared or synced.
-- **In a web browser, outside AI services cannot be used at all**: the web app
-  has nowhere to keep a key.
-- **If you use your own key in the Mac or phone app**, each request first shows
-  the provider, the model, what will be sent, how long the provider keeps it
-  (or that it has not said), and the estimated time and cost. Only what you
-  selected is sent. Health, financial, contact and password-type data stays on
-  your device by default.
+- **Stripe** acts as the merchant of record for web purchases and sees your email address, the plan and price, your payment method, your billing country or address (for tax), and your IP address and device details on its checkout pages. It sends receipts from Link, keeps its own transaction records for as long as the law requires, and can delete your payment data on request. Stripe's privacy policy and Link's terms apply to those pages.
+- **Apple and Google** receive a random token that links the purchase to your Waffle account; they do not receive your email address from us. They keep their own records under their policies.
+- **What Waffle learns from them:** whether your subscription is active, until when, through which seller, and the reference number of each billing event (purchase, renewal, failed payment, cancellation, refund, dispute). Waffle never holds amounts or card details.
+
+**Emails about your plan.** We email you a confirmation when you subscribe, a reminder at least 30 days before every yearly renewal, and notices when a payment fails, when a plan ends and — if you are storing more than the free 1 GB after a plan ends — at about 30, 60 and 83 days before the online copy of your library is removed on day 90 (a file kept only online, because every device freed it with "Free up space", goes with it). A Free account with no sign-in for 12 months is deleted after an email at 11 months and another two weeks before. These are service emails about your account, not marketing; you cannot opt out of them while you have the account.
+
+A subscription bought through Apple or Google is managed and cancelled there; deleting your Waffle account does not cancel it.
+
+## 12. AI features
+
+AI in Waffle runs on your device. Using your own key with an outside AI service is optional and never happens by itself.
+
+- **Search, image recognition and transcription run on your device**, using models downloaded only after you agree.
+- **Transcripts and other AI results stay on your device.** They are not shared or synced.
+- **In a web browser, outside AI services cannot be used at all**: the web app has nowhere to keep a key.
+- **If you use your own key in the Mac or phone app**, each request first shows the provider, the model, what will be sent, how long the provider keeps it (or that it has not said), and the estimated time and cost. Only what you selected is sent, directly from your device to that provider, under that provider's terms and privacy policy; Waffle's servers are not involved. Health, financial, contact and password-type data stays on your device by default.
+- **Waffle never trains AI on your content**, and no AI provider receives anything from Waffle's servers.
 - **No account is needed for any of this.**
 
----
+## 13. Saving things from the web
 
-## Saving things from the web
+**The app itself does not look pages up.** Saving a link saves the link; Waffle does not fetch the page, its title or its icon, because that would tell someone what you save.
 
-**The app itself does not look pages up.** Saving a link saves the link; Waffle
-does not fetch the page, its title or its icon, because that would tell someone
-what you save.
-
-**The browser extension** works only on the tab you click it on. It reads that
-page's address, title and the summary the page publishes about itself — not the
-text of the page. It cannot see your other tabs, your history or your cookies.
+**The browser extension** works only on the tab you click it on. It reads that page's address, title and the summary the page publishes about itself — not the text of the page. It cannot see your other tabs, your history or your cookies.
 
 **Two requests happen after you save, and they are named here.**
 
-- **The extension fetches the page's preview picture**, without cookies and
-  without telling that server which page you were on.
-- **On iPhone and iPad, the app may fetch one preview picture** a few minutes
-  after you share a page to Waffle, if the page named one. That server sees
-  your IP address and the time, and nothing that identifies you or Waffle: no
-  cookies, no account, no device or language details.
+- **The extension fetches the page's preview picture**, without cookies and without telling that server which page you were on.
+- **On iPhone and iPad, the app may fetch one preview picture** a few minutes after you share a page to Waffle, if the page named one. That server sees your IP address and the time, and nothing that identifies you or Waffle: no cookies, no account, no device or language details.
 
----
+## 14. Why we process your data, and on what legal basis
 
-## Payments
+For people in the EEA, the UK and Switzerland, the law requires us to name a legal basis for each purpose. This table applies to everyone; the legal basis column matters where that law applies.
 
-Personal Sync is a paid add-on. Prices and plans are not set yet, and none is
-stated here until they are.
+| Purpose | Data | Legal basis |
+| --- | --- | --- |
+| Signing you in and keeping your account | Email address, account number, sign-in records | Performing our contract with you |
+| Personal Sync and shared folders | The encrypted records and the unencrypted facts in sections 8–10 | Performing our contract with you |
+| Sending the emails you need (sign-in links, deletion and plan notices) | Email address | Performing our contract with you |
+| Taking payments and keeping billing status | Section 11 | Performing our contract with you; legal obligation (tax and accounting records) |
+| Backups, and the records that stop a deleted account coming back | Sections 17–18 | Our legitimate interest in not losing your data and in honouring deletions; performing our contract |
+| Limiting how often deletion emails can be sent, refusing deletion for 7 days after an email change | A scrambled fingerprint of the address; the time of the change | Our legitimate interest in preventing abuse of the deletion route, which protects you |
+| Keeping Waffle secure and enforcing our terms | Sign-in records, IP addresses, abuse reports | Our legitimate interest in security and in protecting other users; legal obligation where a law applies |
+| Answering your requests and complaints | What you send us | Performing our contract; legal obligation (your rights) |
+| Responding to lawful requests from authorities | Whatever the request lawfully covers | Legal obligation; legitimate interest in defending claims |
+| Sending to an outside AI provider with your own key | What you selected | Your consent, given per request, which you can refuse each time |
 
-When you pay, the payment is handled by whoever you pay through: **Stripe** on
-the web and in the Mac app, **Apple** in the iPhone and iPad app, and **Google**
-if the Android app sells it. Your card or account details go to them, never to
-Waffle. They receive your email address, the plan, the amount and what they
-need for tax; Waffle learns from them whether your subscription is active and
-until when. Each keeps its own payment records for as long as the law requires,
-under its own privacy policy.
+We do not profile you, make automated decisions with legal effect about you, or use your data for marketing. If we ever want to use your data for a new purpose, we tell you first and, where the law requires, ask.
 
-A subscription bought through Apple or Google is managed and cancelled there;
-deleting your Waffle account does not cancel it.
+## 15. Who receives your data
 
----
-
-## Service providers
-
-These companies process data for Waffle, each only what its job needs.
+**Service providers (processors).** These companies process data for Waffle, each only what its job needs, under written contracts that bind them to our instructions. The current list, with locations and transfer safeguards, is the [Subprocessor list](https://waffle.page/subprocessors/); we update it before adding a provider and keep old versions available.
 
 | Provider | What it does for Waffle | What it holds or sees | Where |
 | --- | --- | --- | --- |
 | **Supabase** | The database and sign-in for accounts, Sync and shared folders | What the sections on accounts, Personal Sync and shared folders list | United States |
 | **Cloudflare** | Storing your files' encrypted bytes (R2); running the waffle.page website | Encrypted file bytes and their sizes; your IP address and the time of each request | United States |
 | **GitHub** | Serving the app at app.waffle.page; keeping our nightly backup | Your IP address when you load the app; the backup | United States |
-| **Postmark** | Sending Waffle's email: sign-in links, and the deletion emails (a confirmation with a link to cancel, a reminder, and a notice once the account is deleted) | Your email address and the emails it sends you | United States |
+| **Backblaze** (B2 storage) | Keeping a second, encrypted copy of your stored files for up to 33 days, and the record that stops a restored backup from bringing a deleted account back | Encrypted file bytes and their sizes; a one-way fingerprint of a deleted account's sign-in identifier, and the day | United States |
+| **Postmark** | Sending Waffle's email: sign-in links, the deletion emails (a confirmation with a link to cancel, a reminder, and a notice once the account is deleted), and plan notices | Your email address and the emails it sends you | United States |
 | **Stripe, Apple, Google** | Taking payments | What the section on payments lists | Their own |
 
-Hugging Face and OpenFreeMap are contacted only for public model files and map
-tiles, and see only your IP address and the time, as any website would.
+Hugging Face and OpenFreeMap are contacted only for public model files and map tiles, and see only your IP address and the time, as any website would.
 
----
+**Other people, when you choose.** Members of a shared folder see what you add and the facts in section 10.
 
-## How long things are kept
+**Authorities and legal claims.** We disclose data when a law, court order or lawful request requires it, or when necessary to protect Waffle, our users or the public from fraud, abuse or harm. We check that each request is valid, limit what we give to what is required, and — unless a law or court forbids it or a life is at risk — tell you before we comply. Because your content is encrypted with keys we do not hold, we cannot produce its contents to anyone.
+
+**A change of ownership.** If Waffle Corp. is acquired or merges, your data may pass to the successor under this policy; we tell you first.
+
+**Nobody else.** We do not sell personal data, do not share it for advertising, and do not give it to data brokers. We have never done so.
+
+## 16. International transfers
+
+Waffle Corp. is a United States company and our servers and providers are in the United States. If you use Waffle from the European Economic Area, Switzerland or the United Kingdom, your personal data is transferred to the United States.
+
+- **The content you sync or share** is end-to-end encrypted before it leaves your device. Nobody in the United States, including us, can read it.
+- **From you to Waffle Corp.:** the transfer is necessary to provide the service you asked for. Waffle Corp. intends to certify under the EU-U.S. Data Privacy Framework (and its UK and Swiss extensions) and will rely on it once its certification is listed; this policy will say so.
+- **From Waffle to our providers:** we rely on each provider's certification under the EU-U.S. Data Privacy Framework where it has one, and otherwise on the European Commission's Standard Contractual Clauses (and the UK Addendum) in our contract with it. The Subprocessor list names the mechanism for each. You can ask us for a copy of the clauses.
+
+## 17. How long things are kept
 
 | What | How long |
 | --- | --- |
 | Your library on your device | Until you delete it; Trash empties itself after 30 days |
-| Your account and its sign-in records | Until you delete your account |
+| Your account and its sign-in records | Until you delete your account (or it is deleted under section 11) |
 | The encrypted history of your notes and files | As long as your account exists |
-| Encrypted bytes of a replaced or deleted file version | 30 days after it is replaced or deleted (a file deleted with its whole folder: until you delete your account, for now) |
+| Encrypted bytes of a replaced or deleted file version | 30 days after it is replaced or deleted (a file deleted with its whole folder: 30 days after the device that deleted the folder deletes it for good, which it does 30 days after the folder, on a correct clock, the next time it syncs; if that device never syncs again, until you delete your account) |
+| Billing event records (plan, dates, reference numbers — never amounts or card details) | Until your account is deleted, except where tax or accounting law requires us to keep a record without your name or email for up to 7 years |
 | Our nightly backup of the database | 30 days |
+| Our second copy of stored files, at the backup storage provider | At most 33 days after a file leaves our storage |
+| The record that stops a restored backup from bringing a deleted account back | At most 47 days |
 | A deletion request made on the website | It stops working after 60 minutes, and is removed when the next request is handled |
 | The record that limits how often deletion email can be sent to an address | A scrambled fingerprint of the address, not the address itself: at least 24 hours, and until a later request clears it |
 | A deleted account's random identifier, and when it was deleted | Indefinitely, so no new account can take its place |
@@ -326,32 +245,21 @@ tiles, and see only your IP address and the time, as any website would.
 | Our database provider's own logs and backups | During the beta: its logs about a day, and no backups of its own (our nightly backup applies). From public launch: its logs about a week, and daily backups kept about a week |
 | Email Postmark sent | Its own retention period, 45 days by default |
 | Request logs at GitHub and Cloudflare | Their own policies |
+| Your emails to us and our replies | Up to 3 years after the matter closes, so we can show how a request was handled |
+| Payment records at Stripe, Apple or Google | Their own statutory periods, under their policies |
 
----
+## 18. Deletion
 
-## Deletion
+**On your device.** Deleting a note or file moves it to Trash inside your own library, where you can restore it. Trash empties itself after 30 days, and "Delete forever" removes something sooner. On a Mac, removing Waffle does not delete your library, and you do not need Waffle to read it. On a phone, and in a browser, the library lives in Waffle's own storage, so removing Waffle or clearing the browser's data deletes it; the [Cookie and Storage Notice](https://waffle.page/cookies/) says how to keep a copy.
 
-**On your device.** Deleting a note or file moves it to Trash inside your own
-library, where you can restore it. Trash empties itself after 30 days, and
-"Delete forever" removes something sooner. Removing Waffle does not delete your
-library, and you do not need Waffle to read it.
+**Your account.** You can delete your account in the app (Account → Delete account), or at waffle.page/delete-account with only your email address.
 
-**Your account.** You can delete your account in the app (Account → Delete
-account), or at waffle.page/delete-account with only your email address.
-
-- **A 7-day hold comes first.** Deleting your account starts a 7-day hold.
-  During it your account is frozen: Sync stops on every device, and signing in
-  offers only "Cancel deletion". We email you when the hold starts, with a link
-  to cancel, and again the day before deletion. Cancelling restores the account
-  as it was.
-- **Then everything Waffle stores for the account is deleted, keys first.** The
-  keys we hold for your account are destroyed before anything else, so what
-  remains cannot be opened by a new device. Then your synced notes and files and
-  their history, your devices and sign-ins, every shared folder you own that
-  nobody else uses, and the account itself are deleted.
-- **What is kept, and for how long** — the same list the deletion page and the
-  app's deletion receipt give:
+- **A 7-day hold comes first.** Deleting your account starts a 7-day hold. During it your account is frozen: Sync stops on every device, and signing in offers only "Cancel deletion". We email you when the hold starts, with a link to cancel, and again the day before deletion. Cancelling restores the account as it was.
+- **Then everything Waffle stores for the account is deleted, keys first.** The keys we hold for your account are destroyed before anything else, so what remains cannot be opened by a new device. Then your synced notes and files and their history, your devices and sign-ins, every shared folder you own that nobody else uses, and the account itself are deleted.
+- **What is kept, and for how long** — the same list the deletion page and the app's deletion receipt give:
   - **30 days:** our nightly backup still holds your account's records until it expires.
+  - **Up to 33 days:** our second copy of stored files, at a separate backup storage provider, still holds your account's encrypted files for at most 33 days after they left our storage.
+  - **Up to 47 days:** that backup provider keeps a one-way fingerprint of your account's internal sign-in identifier and the day it was deleted, so that restoring an older backup cannot bring your account back. It contains nothing about you, and is deleted within 47 days.
   - **Indefinitely:** a random number that identified your account, and when it was deleted, so no new account can take its place. It contains nothing about you.
   - **For the life of the folder:** in shared folders other people own, the record that you were a member — your invitations, your access (ended, not erased) and what you added there are the other members' to keep.
   - **For the life of those folders:** the public keys other members use to check what you shared with them. They open nothing.
@@ -359,40 +267,57 @@ account), or at waffle.page/delete-account with only your email address.
   - **Indefinitely:** a shared folder whose hand-over was left unfinished, which nobody can now erase. The receipt names any such folder.
   - **For our database provider's own period:** its sign-in audit log, which records each sign-in with its IP address and the account it belongs to. Waffle cannot delete it or see how long it is kept; during the beta the provider keeps its logs about a day, and from public launch about a week.
   - **For our database provider's own period:** its own backups — none during the beta, and from public launch its daily backups, kept about a week.
-- **A shared folder you own that other people still use** has to be handed
-  over or erased first, from a device where you are signed in; deletion stops
-  and names it until you do.
-- **What stays with you.** Your files on your own devices — Waffle never deletes
-  them for you. One exception: a file you removed from a device with "Free up
-  space" exists only on our servers until a device downloads it again, so
-  deleting your account deletes it. Open such files on a device first if you
-  want to keep them. A device where you are still signed in keeps its own copy
-  of your keys until you remove Waffle's data there, and a recovery code you
-  wrote down is still on paper.
+- **A shared folder you own that other people still use** has to be handed over or erased first, from a device where you are signed in; deletion stops and names it until you do.
+- **What stays with you.** Your files on your own devices — Waffle never deletes them for you. One exception: a file you removed from a device with "Free up space" exists only on our servers until a device downloads it again, so deleting your account deletes it. Open such files on a device first if you want to keep them. A device where you are still signed in keeps its own copy of your keys until you remove Waffle's data there, and a recovery code you wrote down is still on paper.
+
+**Payment records.** Deleting your account cancels a web subscription at the end of its period and asks Stripe to delete your payment data; a store subscription must be cancelled in the store. Stripe, Apple and Google keep the records the law requires them to keep.
+
+## 19. Backups
+
+Every night the database is copied — every record, including account email addresses and the encrypted Sync and shared-folder records — and the copy is kept privately at GitHub for 30 days, then deleted. The copy is encrypted with a key Waffle holds, and leaves out sign-in sessions, sign-in links and codes. Your content inside it is encrypted either way. A deleted account stays in the backups until they expire. The encrypted bytes of stored files are copied each night to a separate backup storage provider in the United States and kept there for at most 33 days after they leave our storage. If we ever restore a backup, accounts deleted since it was made are deleted again before anyone can use it: for that, the provider keeps a one-way fingerprint of each deleted account's sign-in identifier for at most 47 days.
+
+## 20. Security
+
+Your content is encrypted end to end with modern, published algorithms, with keys that never leave your devices unencrypted. Everything between your device and our servers travels over TLS. Access to our providers' consoles is limited to Waffle's operator, protected by multi-factor sign-in, and never used to read user records except to answer a request of yours or to investigate abuse. We keep no copy of your keys and no password of yours. No system is perfectly secure: **if we learn of a breach that affects your personal data, we will tell you without undue delay, and tell the regulators the law requires within the time it requires** (72 hours under the GDPR). Report security problems to contact@waffle.page.
+
+## 21. Your rights
+
+These rights are yours wherever you live. Where a law such as the GDPR, the UK GDPR, or a U.S. state privacy law (California, Colorado, Connecticut, Virginia, Utah, Texas, Oregon and others) gives you more, you have that too.
+
+**You can:**
+
+- **know** what personal data we hold about you and get a copy (most of it is already on your own device; the rest is what sections 7–11 list);
+- **correct** it (write to us to change your email address);
+- **delete** it — your account, in the app or at waffle.page/delete-account, without asking us; or by emailing us;
+- **take it with you**: your library is already an ordinary folder on your device; we can also give you the account records we hold in a machine-readable form;
+- **restrict or object** to processing based on our legitimate interests, and we will stop unless we have a compelling reason that overrides your interests;
+- **withdraw consent** at any time where we rely on it (the per-request AI consent), with no effect on what was done before;
+- **opt out of the sale or sharing of your personal data and of targeted advertising** — we do not do any of these, so there is nothing to opt out of; we treat a Global Privacy Control signal as such an opt-out anyway;
+- **limit the use of sensitive personal data** — we do not use any;
+- **not be discriminated against** for exercising any right.
+
+**How to exercise them.** Email contact@waffle.page from the address on your account, or state the address and we will send a code to it. That is how we verify it is you; we ask for nothing more unless the request is unusual. An authorised agent may act for you if you confirm the authorisation to us from your account's address. We answer within one month (or 45 days where U.S. state law sets that period), and tell you if we need longer. There is no charge unless a request is manifestly unfounded or repetitive.
+
+**Appeal.** If we refuse a request, we tell you why and how to appeal; you can appeal by replying, and a different reviewer answers within 45 days. You can also complain to a regulator at any time.
+
+**Regulators.** In the EEA, to your national data protection authority (in Spain, the Agencia Española de Protección de Datos, www.aepd.es; a list of all of them is at edpb.europa.eu). In the UK, to the Information Commissioner's Office (ico.org.uk). In Switzerland, to the FDPIC. In the United States, to your state attorney general or the California Privacy Protection Agency.
+
+**Shared folders.** Records of your membership and contributions in folders other people own belong to those people's folders; we cannot delete them for you, because they are the other members' evidence of what happened in their folder. You can leave a folder at any time; your past membership stays on record as ended.
+
+**California.** We do not sell or share personal information and have not done so in the preceding 12 months. The categories we collect are identifiers (email address, account number, IP address), internet activity limited to sign-in and sync records, and commercial information limited to your plan and billing status; the sources are you and the sellers in section 11; the purposes are those in section 14; the recipients are those in section 15. We collect no sensitive personal information.
+
+## 22. Children
+
+Waffle is not directed at children. You must be at least 13 to use it (16 in the EEA, Switzerland and the UK, or your country's lower age for consenting to online services, never below 13). We do not knowingly collect personal data from a child under those ages. If you believe a child has created an account, email contact@waffle.page and we will delete it. Nothing in Waffle asks for or infers a person's age, so what we know is what the account holder tells us.
+
+## 23. Changes to this policy
+
+We change this policy when Waffle changes. A feature that is switched on or added changes the policy in the same release. For a change that reduces your rights or widens what we collect or who receives it, we email the address on your account (if you have one) and show a notice in the app at least 30 days before it takes effect, and we never apply it to data already collected without your consent where the law requires consent. Smaller changes take effect when posted. The date at the top says which version you are reading; earlier versions are available on request.
+
+## 24. Contacting us
+
+**Write to contact@waffle.page.** You do not need an account or anything but email. It is one mailbox for privacy questions, requests about your data and security reports. By post: Waffle Corp., 2093 Philadelphia Pike #2073, Claymont, DE 19703, United States.
 
 ---
 
-## Backups
-
-Every night the database is copied — every record, including account email
-addresses and the encrypted Sync and shared-folder records — and the copy is
-kept privately at GitHub for 30 days, then deleted. The copy is encrypted with
-a key Waffle holds, and leaves out sign-in sessions. Your content inside it is
-encrypted either way. A deleted account stays in the backups until they
-expire.
-
----
-
-## Contacting us
-
-**Write to [support@waffle.page](mailto:support@waffle.page).** You do not need
-an account or anything but email. It is one mailbox for privacy questions,
-requests about your data and security reports.
-
----
-
-## Changes to this policy
-
-This policy is a draft awaiting legal review. How changes will be announced is
-not settled yet; until it is, the date at the top says which version you are
-reading.
+*Waffle Corp. · Version 2026-10-13*

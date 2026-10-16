@@ -1,0 +1,29 @@
+# Cookie and Storage Notice
+
+**Version 2026-10-13.** Part of the [Privacy Policy](https://waffle.page/privacy/).
+
+## Cookies: none
+
+Waffle sets no cookies — not in the app, not in the web app at app.waffle.page, and not on the website waffle.page. There is no analytics, advertising, tag manager or tracking pixel anywhere. That is why there is no cookie banner: there is nothing to consent to.
+
+The only pages that set cookies are **Stripe's** checkout and subscription pages, which you reach from the web app when you buy or manage a paid plan. Those are Stripe's own pages, under Stripe's privacy policy and cookie notice.
+
+## Storage on your device: strictly necessary only
+
+The web app and the extension keep data in your browser's own storage (IndexedDB, local storage and the file-system API where available), and the Mac and phone apps in the app's own storage. All of it exists only to make Waffle work on that device, and none of it is read by anyone else:
+
+| What | Why | Until |
+| --- | --- | --- |
+| Your library (web app only) | In a browser there is nowhere else to keep it | You clear it, or the browser does |
+| Waffle's search index and thumbnails | Speed; rebuilt from your files at any time | You remove the library or Waffle's data |
+| Your sign-in session | So you stay signed in | You sign out, or the session expires |
+| Your decisions (Sync on or off, sharing on or off, which AI models you agreed to download) | So nothing switches itself on, and so we never have to guess | You change them |
+| Your encryption keys, on devices you enrolled | Sync cannot work without them; they never leave the device unencrypted | You remove Waffle's data on that device. Removing a device from your account stops it receiving new keys, but does not erase the keys it already holds |
+| Downloaded AI models | So they do not download twice | You remove them where you use them ("Remove local model data"), or remove Waffle |
+| Interface preferences (layout, theme, last-opened folder) | Convenience | You change them |
+
+**How to clear it.** On a Mac, removing the app leaves its storage behind: delete the folders named page.waffle.desktop in your user Library, and Waffle's entries in Keychain Access. Your library folder is yours and stays where it is. On iPhone and Android your library lives in Waffle's own folder on the device (Settings → Where your files live says where), and uninstalling Waffle removes that folder with the rest of its storage — copy your library out first. In a browser, use Account → "Sign out of this browser", then your browser's "clear site data" for app.waffle.page, which also deletes a browser-only library — export it first.
+
+## Questions
+
+contact@waffle.page

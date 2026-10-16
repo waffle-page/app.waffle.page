@@ -1,0 +1,50 @@
+# Refunds and Cancellation
+
+**Version 2026-10-13.** Part of the [Terms of Service](https://waffle.page/terms/) (section 6). Plain rules, no small print.
+
+## Cancelling
+
+You can cancel a paid plan at any time, and it is as easy as subscribing was.
+
+| Where you bought | How to cancel |
+| --- | --- |
+| On the web or from the Mac app (Stripe) | In the app: Account → Your plan → "Change or cancel your plan", which opens Stripe's customer portal. Or sign in at link.com and cancel the subscription there. Or email contact@waffle.page and we cancel it for you. |
+| In the iPhone or iPad app (Apple) | Settings → your name → Subscriptions on your device, or "Manage in App Store settings" under Account → Your plan in the app. |
+| In the Android app (Google Play) | Google Play → Payments & subscriptions → Subscriptions, or "Manage in Google Play" under Account → Your plan in the app. |
+
+Cancelling takes effect at the **end of the period you have paid for**. You keep the plan until then; you are not charged again. **Cancelling deletes nothing.** When the plan ends you are on Free (1 GB); if you store more than that, uploads pause and everything stays readable and downloadable, as the Terms section 6.8 explains.
+
+Deleting your Waffle account cancels a web subscription at the end of its period. It does **not** cancel an Apple or Google subscription — cancel that in the store, or it keeps renewing.
+
+## Refunds
+
+### Web purchases (Stripe)
+
+- **14-day money-back guarantee on your first purchase of a plan.** Email contact@waffle.page within 14 days of the first payment and we refund it in full and cancel the plan. No reason needed. This applies once per account, to the first purchase of Plus or Pro (monthly or yearly).
+- **Renewals and later purchases** are not refundable, except as below. Cancel before the renewal date to avoid being charged; we remind you at least 30 days before every yearly renewal.
+- **Upgrades and downgrades** are prorated by Stripe: an upgrade charges the difference for the rest of the period; a downgrade takes effect at the next renewal.
+- **Exceptions, always:** if we charged you by mistake, if a price change took effect without the notice our terms promise, if we withdraw the plan or a paid feature without an equivalent, or if the service did not work and we could not fix it within a reasonable time, we refund the unused part of your period, or the whole charge where that is fairer.
+- **How it arrives.** Refunds go back to the payment method you used, issued through Stripe, usually within 5–10 business days. You can also ask Link support (the seller of record for web purchases) directly; Stripe may issue refunds within 60 days of a transaction under its own rules.
+
+### Consumers in the EEA, Switzerland and the UK
+
+You have a **statutory right to withdraw within 14 days** of a web purchase or renewal, without giving a reason. Email contact@waffle.page (any clear statement is enough; you may use the model form below). Because your plan starts at once, you agree at checkout that we begin providing it during the withdrawal period; if you withdraw, we refund the full amount within 14 days of your request, without deduction. This right exists alongside the guarantee above and alongside your other legal remedies if the service does not conform to the contract.
+
+*Model withdrawal form:* "To Waffle Corp., contact@waffle.page: I hereby give notice that I withdraw from my contract for the following service: [Plus/Pro, monthly/yearly], ordered on [date], name [your name], email on the account [email], date [today]."
+
+### App Store and Google Play purchases
+
+Apple and Google take those payments and refund them under their own rules:
+
+- **Apple:** reportaproblem.apple.com, or the Apple Support app.
+- **Google:** play.google.com → Order history, or Google Play Help, within the periods Google sets.
+
+We cannot refund an App Store purchase; only Apple can. A Google Play purchase we can also refund ourselves, through Google Play, where our terms or the law call for it. If a store refuses a refund you believe you are owed, email contact@waffle.page and we will help you make the case. EU and UK withdrawal rights apply to store purchases too, through the store.
+
+## Failed payments
+
+If a renewal fails, the seller retries during a grace period (about 7 days on the web; in the App Store or Google Play, the period the store sets) and your plan keeps working. Update your payment method in the customer portal or the store. If payment still fails, the plan ends; nothing is deleted.
+
+## Questions
+
+contact@waffle.page. We answer within 2 business days.

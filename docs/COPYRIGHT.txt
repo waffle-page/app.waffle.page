@@ -1,0 +1,70 @@
+# Copyright and Reports
+
+**Version 2026-10-13.** Part of the [Terms of Service](https://waffle.page/terms/) (section 9). How to tell us about copyright infringement or other illegal content in Waffle, and what we do.
+
+## First, what Waffle can and cannot do
+
+Content that people sync or share through Waffle is end-to-end encrypted. **We cannot see it, search it or confirm what it is.** We can, on a valid notice, end a shared folder's sharing, suspend the responsible account, or disable access to the specific encrypted items a notice identifies. We cannot judge a notice's merits by looking at the content, so we rely on the notice and, where one arrives, the counter-notice.
+
+Nothing in Waffle is public. Personal libraries are private to their owner; shared folders are private to their invited members. A notice therefore normally comes from a member of a shared folder, or from someone a member showed the content to.
+
+## Copyright (DMCA)
+
+We follow the notice-and-takedown process of the U.S. Digital Millennium Copyright Act, 17 U.S.C. § 512, for everyone, wherever they are.
+
+### Our designated agent
+
+> Copyright Agent, Waffle Corp.  
+> 2093 Philadelphia Pike #2073, Claymont, DE 19703, United States  
+> Email: contact@waffle.page (subject: "Copyright")  
+> Telephone: +1 315 636 0428  
+> U.S. Copyright Office registration number: DMCA-1082852
+
+### Sending a notice
+
+Email the agent with all of the following; a notice missing them may not be acted on:
+
+1. your physical or electronic signature, as the owner of the copyright or someone authorised to act for the owner;
+2. identification of the copyrighted work you say is infringed (or a representative list, if several);
+3. identification of the material you say is infringing, with enough detail for us to find it — in Waffle, that means the shared-folder name or invitation link and the item names, or the account email of the person who shared it with you, since we cannot search content;
+4. your name, address, telephone number and email;
+5. a statement that you have a good-faith belief that the use is not authorised by the copyright owner, its agent or the law;
+6. a statement, under penalty of perjury, that the information in the notice is accurate and that you are the owner or authorised to act for the owner.
+
+**Misrepresentation has consequences.** Under § 512(f), anyone who knowingly and materially misrepresents that material is infringing, or was removed by mistake, is liable for the damages that result, including our costs and attorneys' fees.
+
+### What we do with a valid notice
+
+Within 2 business days of a complete notice we disable access to the identified material (by ending its sharing or disabling the items) or suspend the account, and we tell the person who shared it, giving them a copy of the notice. We log the notice and count it against that person's account.
+
+### Counter-notice
+
+If your material was disabled and you believe that was a mistake or a misidentification, email the agent with:
+
+1. your physical or electronic signature;
+2. identification of the material and where it was before it was disabled;
+3. a statement under penalty of perjury that you have a good-faith belief it was disabled by mistake or misidentification;
+4. your name, address and telephone number, and a statement that you consent to the jurisdiction of the federal district court for your district (or, if outside the United States, for the District of Delaware), and that you will accept service of process from the person who sent the notice or their agent.
+
+We forward the counter-notice to the person who sent the notice. Unless they tell us within 10 business days that they have filed a court action to restrain the infringement, we restore access between 10 and 14 business days after receiving the counter-notice.
+
+### Repeat infringers
+
+An account that receives notices we act on for three separate works within 12 months, or that we judge to be infringing deliberately, is terminated. We may terminate sooner for serious cases.
+
+## Other illegal content and abuse
+
+For content that is illegal for a reason other than copyright — for example child sexual abuse material, terrorist content, non-consensual intimate images, credible threats, or content that breaks the law where you live — email contact@waffle.page with the subject "Report" and tell us:
+
+- why you believe the content is illegal (which law, in your own words is fine);
+- where it is (the shared folder or invitation link, the item names, or the account that shared it);
+- your name and email, unless the report concerns child sexual abuse material, which you may send anonymously;
+- a statement that you believe in good faith that the information is accurate and complete.
+
+We acknowledge the report, act on it diligently and without arbitrary delay, tell you what we decided and why, and tell the person affected (unless the law forbids it or it concerns child sexual abuse material). We make our decision on the information in the report and what we can see, since we cannot read the content. If you disagree with our decision, reply and a different person reviews it.
+
+Users in the European Union may also use this page to make the notices the Digital Services Act provides for, and have the right to lodge a complaint with the Digital Services Coordinator of their member state.
+
+## Trademark and other claims
+
+For trademark, privacy, defamation or other claims, email contact@waffle.page with the subject "Legal" and the details above. We handle them the same way.

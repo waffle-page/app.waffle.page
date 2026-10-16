@@ -1,0 +1,42 @@
+# Acceptable Use Policy
+
+**Version 2026-10-13.** Part of the [Terms of Service](https://waffle.page/terms/) (section 8).
+
+Waffle is built so that we cannot read what you keep in it. That protects you, and it means we rely on you to use it lawfully. This page says what is not allowed, what we can and cannot see, and what we do about violations.
+
+## What you may not do
+
+**Content.** Do not store, sync, share or publish through Waffle anything that:
+
+1. is illegal where you are or where we are — above all, child sexual abuse material, which we report to the authorities wherever we become aware of it;
+2. infringes someone else's copyright, trademark, trade secret, privacy or other rights (saving a page for yourself is fine; redistributing someone's work is not);
+3. is used to harass, threaten, stalk, defraud, extort or impersonate anyone;
+4. contains malware or is used to distribute it.
+
+**Behaviour.** Do not:
+
+5. crawl, scrape or bulk-download websites with the extension or the saving features — they are for pages you are actually looking at;
+6. collect other people's personal data without a lawful basis, or use Waffle to profile people;
+7. get around Waffle's security boundaries, the access rules of shared folders, the storage limits or a technical measure — including by holding several Free accounts or sharing one account between people;
+8. probe, scan, overload, flood or attack our servers or our providers, or interfere with other users' use;
+9. reverse engineer, decompile or tamper with the software except where the law allows it despite our terms;
+10. run a service for other people on top of Waffle, resell access, or use it for anyone's benefit but your own (and your household's or team's, in shared folders);
+11. use Waffle to break a law, a sanction, an export control or a store's rules.
+
+**Security research** that stays within these rules — testing only your own accounts and data, no disruption, no access to other people's data, reported to contact@waffle.page before disclosure — is welcome and will not be pursued.
+
+## What we can and cannot see
+
+Your synced and shared content is end-to-end encrypted. **We cannot read it, so we do not and cannot pre-screen, scan or moderate content.** We can see the unencrypted facts the Privacy Policy lists: who holds an account, who shares a folder with whom, sizes, times and IP addresses. We also receive notices and reports from other people.
+
+## What we do about violations
+
+- We act on **notices and reports** under the [Copyright and Reports page](https://waffle.page/copyright/): we can end a share, suspend an account or disable access to specific encrypted items, even though we cannot read them.
+- We act on **what we can see**: patterns of abuse against our servers, fraud, chargebacks, multiple-account abuse.
+- Depending on the seriousness we warn, suspend or terminate, as the Terms of Service section 11 describes, and we tell you why unless the law forbids it.
+- We **cooperate with law enforcement** where a valid legal process requires it, and we report child sexual abuse material to the U.S. National Center for Missing and Exploited Children as U.S. law requires.
+- **Repeat copyright infringers** lose their accounts.
+
+## Reporting
+
+contact@waffle.page, subject "Report". Say what, where (a share link or folder name is enough), and why. We acknowledge every report and tell you what we did.
