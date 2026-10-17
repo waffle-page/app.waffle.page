@@ -15,6 +15,12 @@ name: Promote
 # which a stranger lands on. Both are derived from the release for the tag being
 # promoted, so the web bundle and the desktop image always describe ONE commit.
 # See waffle's docs/recipes/promote-production.md for the full contract.
+#
+# PRIVATE UNTIL LAUNCH (owner ruling 2026-10-17, waffle docs/rulings.md § The
+# desktop download stays private until launch): neither file is written unless
+# the repository variable WAFFLE_DESKTOP_DOWNLOAD_PUBLIC is exactly `true`.
+# Unset, empty or anything else skips them with a notice; the web bundle is
+# promoted as always.
 
 on:
   workflow_dispatch:
@@ -70,8 +76,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           REF: ${{ inputs.ref }}
+          DOWNLOAD_PUBLIC: ${{ vars.WAFFLE_DESKTOP_DOWNLOAD_PUBLIC }}
         run: |
           set -euo pipefail
+
+          # Fail closed: only the exact string opens the public channel.
+          if [ "${DOWNLOAD_PUBLIC:-}" != "true" ]; then
+            echo "::notice::The desktop download is private until launch (WAFFLE_DESKTOP_DOWNLOAD_PUBLIC is not exactly 'true'); latest.json and download/ not written."
+            exit 0
+          fi
 
           # Only a vX.Y.Z tag names a desktop release. Promoting a branch or a
           # bare sha is legitimate and simply has no image to point at.
